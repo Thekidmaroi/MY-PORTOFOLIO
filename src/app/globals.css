@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f8fa;
+  --surface: #ffffff;
+  --surface-2: #eef0f4;
+  --foreground: #10131a;
+  --muted: #5b6270;
+  --border: #e2e4ea;
+  --accent: #0f9c8f;
+  --accent-2: #6a5cf5;
+  --accent-contrast: #ffffff;
+}
+
+:root[data-theme="dark"],
+:root:not([data-theme="light"]) {
+  @media (prefers-color-scheme: dark) {
+    --background: #0a0c10;
+    --surface: #12151b;
+    --surface-2: #171b23;
+    --foreground: #edeff3;
+    --muted: #8b93a3;
+    --border: #232833;
+    --accent: #2dd4bf;
+    --accent-2: #8b7cf6;
+    --accent-contrast: #06110f;
+  }
+}
+
+:root[data-theme="dark"] {
+  --background: #0a0c10;
+  --surface: #12151b;
+  --surface-2: #171b23;
+  --foreground: #edeff3;
+  --muted: #8b93a3;
+  --border: #232833;
+  --accent: #2dd4bf;
+  --accent-2: #8b7cf6;
+  --accent-contrast: #06110f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-contrast: var(--accent-contrast);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  color-scheme: light dark;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+.gradient-text {
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.mono-label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out both;
+}
