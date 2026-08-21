@@ -14,7 +14,7 @@ export const profile = {
   location: "Casablanca, Maroc",
   phone: "+212 641-364-029",
   email: "alberichoun.del@gmail.com",
-  availability: "Ouvert aux missions de conseil et collaborations R&D",
+  availability: "Ouvert aux missions de conseil, collaborations R&D et opportunités de doctorat",
   photo: placeholder("avatar", "/images/profil.jpg"),
   links: {
     github: "https://github.com/Thekidmaroi",
@@ -23,7 +23,7 @@ export const profile = {
     researchgate: "#TODO-researchgate",
   },
   summary:
-    "AI Research Engineer, je conçois et déploie des systèmes d'IA appliquée de bout en bout — de la modélisation à la mise en production. Auteur publié (Springer Nature, indexé Web of Science), je m'appuie sur des architectures hybrides probabilistes-neuronales (chaînes de Markov, deep learning) pour résoudre des problèmes concrets : détection d'anomalies et maintenance prédictive sur données de capteurs, agents RAG conversationnels sur données civiques, dashboards prêts pour la production. Mon fil rouge : faire le pont entre la recherche et des systèmes d'IA réellement déployés.",
+    "AI Research Engineer spécialisé en modélisation stochastique, optimisation markovienne et architectures hybrides probabilistes-neuronales. Auteur publié (Springer Nature, indexé Web of Science), j'ai contribué à des travaux de recherche sur les smart grids, les smart cities et la modélisation des systèmes énergétiques. Mes recherches visent à concevoir des systèmes d'IA interprétables et évolutifs, capables d'intégrer la modélisation probabiliste aux approches d'apprentissage profond. Fort d'une expérience à la fois en laboratoire de recherche et en déploiement industriel, je développe des pipelines d'IA de bout en bout — de la formulation théorique et l'optimisation bayésienne jusqu'à l'implémentation en production via des LLMs. Je m'intéresse particulièrement au développement de systèmes d'IA hybrides pour les infrastructures énergétiques et urbaines, dans une perspective de recherche académique approfondie et de collaboration internationale.",
   languages: [
     { name: "Français", level: "Bilingue" },
     { name: "Anglais", level: "Professionnel" },
@@ -57,39 +57,88 @@ export type Experience = {
 
 export const experiences: Experience[] = [
   {
-    role: "Artificial Intelligence Developer",
-    company: "Namaryk Concept",
-    period: "Présent",
-    location: "Casablanca, Maroc",
-    current: true,
-    logo: placeholder("logo", "/images/logos/namaryk-concept.png"),
+    role: "Data Scientist",
+    company: "Atlantic Smart Technology",
+    period: "Mars 2026 – Juillet 2026",
+    location: "Kénitra, Maroc",
+    logo: "/images/logos/atlantic-smart-technology.png",
     bullets: [
-      "Conception et intégration de systèmes d'automatisation pilotés par l'IA pour des workflows architecturaux.",
-      "Développement de générateurs de rendu 3D par IA et de scripts d'optimisation pour la gestion des devis et des stocks.",
-      "Application de stratégies de personnalisation orientées données pour améliorer la performance commerciale.",
+      "Conception et mise en place de modèles de machine learning pour la prédiction des flux de trésorerie, pour un client du secteur financier (OneUp).",
     ],
   },
   {
-    role: "AI Developer Intern",
+    role: "AI Developer",
+    company: "Namaryk Concept",
+    period: "Janvier 2026 – Mai 2026",
+    location: "Casablanca, Maroc",
+    logo: "/images/logos/namaryk-concept.png",
+    bullets: [
+      "Conception et intégration de solutions d'IA et d'automatisation pour optimiser les processus internes, améliorer la productivité et développer des outils de visualisation pour les clients.",
+      "Développement de générateurs de rendu 3D par IA et de scripts d'automatisation pour la gestion des devis et des stocks.",
+      "Exploitation des données clients pour personnaliser les offres et identifier des tendances au service de la stratégie commerciale.",
+      "Déploiement, maintenance et formation des équipes à l'usage des outils développés ; veille technologique continue sur l'architecture et le design.",
+    ],
+  },
+  {
+    role: "Research Assistant",
+    company: "CERMACH (SUP'RH)",
+    period: "2025 – Mai 2026",
+    location: "Casablanca, Maroc",
+    logo: placeholder("logo", "/images/logos/cermach-suprh.png"),
+    bullets: [
+      "Contribution à des projets de recherche sur la modélisation stochastique et les architectures hybrides probabilistes-neuronales pour les systèmes énergétiques et les infrastructures intelligentes.",
+      "Participation au développement de frameworks markoviens hybrides combinés à des algorithmes EM régularisés pour l'optimisation de smart grids en conditions de données manquantes.",
+      "Contribution à la modélisation stochastique de l'allocation de ressources pour les villes intelligentes durables et les infrastructures 6G, et à la modélisation des transitions de gouvernance urbaine via HMM et données IoT publiques.",
+      "Conception et évaluation de frameworks stochastiques hybrides pour la prévision de production éolienne — travaux publiés (Springer Nature, Taylor & Francis) et présentés en conférences internationales.",
+    ],
+  },
+  {
+    role: "AI Developer",
     company: "Web4Jobs",
     period: "Mai – Juillet 2025",
     location: "Casablanca, Maroc",
     logo: placeholder("logo", "/images/logos/web4jobs.png"),
     bullets: [
-      "Conception d'un moteur de recommandation adaptatif (système SOIPA) pour l'orientation de carrière, augmentant l'engagement utilisateur de 15% grâce à des parcours de tests psychométriques personnalisés.",
-      "Intégration du moteur de recommandation dans une interface web destinée aux utilisateurs finaux.",
+      "Conception et développement du système SOIPA : un moteur d'orientation piloté par IA prédisant l'adéquation employabilité/entrepreneuriat à partir de réponses psychométriques.",
+      "Entraînement d'un modèle Random Forest sur un jeu de données synthétique de plus de 1000 profils d'apprenants, avec validation croisée.",
+      "Développement d'une API Flask (servant le modèle) et d'une interface React collectant les données et affichant les résultats dynamiquement.",
+      "Intégration de l'API Google Gemini pour des messages de coaching personnalisés ; documentation technique complète et architecture pensée pour la montée en charge.",
     ],
   },
   {
-    role: "AI Engineer Intern",
-    company: "SRM-CS",
+    role: "Data Scientist - AI Engineer",
+    company: "Lydec",
     period: "Avril – Juillet 2025",
     location: "Casablanca, Maroc",
-    logo: placeholder("logo", "/images/logos/srm-cs.png"),
+    logo: placeholder("logo", "/images/logos/lydec.png"),
     bullets: [
       "Développement et conteneurisation d'un LLM (Docker) et fine-tuning de modèles transformer (Mistral, DeepSeek) pour la génération automatique de texte, réduisant le temps de traitement des requêtes de 25%.",
       "Conception d'un pipeline de classification multi-labels pour l'annotation sémantique de réclamations clients, améliorant la précision du routage de 92%.",
       "Construction d'un dashboard de monitoring temps réel (Power BI) pour suivre la performance et la dérive des modèles.",
+    ],
+  },
+  {
+    role: "Analyste données commerciales",
+    company: "Laboratoires Pharmaceutiques GALENICA",
+    period: "Janvier – Avril 2025",
+    location: "Casablanca, Maroc",
+    logo: placeholder("logo", "/images/logos/galenica.png"),
+    bullets: [
+      "Conception de dashboards interactifs et d'analyses de performance avec Power BI et SQL Server pour optimiser la prise de décision stratégique.",
+      "Automatisation de processus pour améliorer l'efficacité opérationnelle.",
+      "Contribution à l'intégration de solutions d'intelligence artificielle dans les processus décisionnels.",
+    ],
+  },
+  {
+    role: "Statisticien (stage)",
+    company: "Ministère du Numérique et de la Digitalisation du Bénin",
+    period: "Avril – Juillet 2024",
+    location: "Cotonou, Bénin",
+    logo: placeholder("logo", "/images/logos/ministere-numerique-benin.png"),
+    bullets: [
+      "Participation à la collecte et au nettoyage de données d'enquêtes économiques nationales.",
+      "Rédaction d'un mémoire de fin de licence professionnelle (Statistique Économique et Sectorielle) appliquant la modélisation SVAR (Structural Vector Autoregression) aux chocs économiques dans la zone UEMOA.",
+      "Proposition de politiques de synchronisation économique visant à rendre la zone UEMOA plus optimale.",
     ],
   },
 ];
@@ -190,7 +239,7 @@ export const conferencePapers: ConferencePaper[] = [
   },
   {
     citation:
-      "Houngnon, M., & Bounnite, M. Y. AI-Enhanced Reliable Stochastic Modeling for Wind Power Forecasting.",
+      "Houngnon, M., & Bounnite, M. Y. AI-Enhanced Reliable Stochastic Modeling for Wind Power Forecasting: Addressing Practical Challenges in Hybrid Framework Deployment.",
     location: "Ifrane, Maroc",
     status: "Accepté",
     media: placeholder("cover", "/images/conferences/ifrane-wind-power.jpg"),
@@ -207,27 +256,35 @@ export type Education = {
 
 export const education: Education[] = [
   {
-    degree: "M.Sc. en Intelligence Artificielle (2ᵉ année)",
+    degree: "Master's Degree — Data Science & Intelligence Artificielle",
     school: "SUP'RH — School of Management and Artificial Intelligence",
-    period: "2025 – 2026",
+    period: "Octobre 2024 – Août 2026",
     location: "Casablanca, Maroc",
-    photo: placeholder("school", "/images/schools/suprh.jpg"),
+    photo: "/images/schools/suprh.png",
   },
   {
-    degree: "B.Sc. en Mathématiques Appliquées et Statistiques",
+    degree: "B.Sc. en Mathématiques Appliquées, Économie",
     school: "École Nationale d'Économie Appliquée et de Management (ENEAM)",
-    period: "2021 – 2024",
+    period: "Novembre 2021 – Juillet 2024",
     location: "Cotonou, Bénin",
-    photo: placeholder("school", "/images/schools/eneam.jpg"),
+    photo: "/images/schools/eneam.png",
+  },
+  {
+    degree: "Programmation et analyse statistique avec R (RStudio)",
+    school: "Chaire Internationale de Physique et Mathématiques UNESCO — Université d'Abomey-Calavi (UAC)",
+    period: "Juillet – Septembre 2023",
+    location: "Cotonou, Bénin",
+    photo: placeholder("school", "/images/schools/unesco-uac.jpg"),
   },
 ];
 
 export const certifications: string[] = [
-  "LinkedIn Learning — Computer Vision",
-  "OpenCV University — OpenCV Bootcamp",
-  "AWS — Machine Learning Foundations",
-  "AWS — Generative AI",
-  "Columbia University — Learning AI through Visualization",
+  "Learning AI Through Visualization",
+  "Computer Vision for Data Scientists",
+  "Introducing SAP Business Data Cloud — Course Completion",
+  "OpenCV Bootcamp (OpenCV University)",
+  "Introducing Generative AI with AWS",
+  "Africatechup Tour — Bourse Data Analyst",
 ];
 
 export const skills = {
@@ -253,11 +310,15 @@ export const skills = {
     "LangChain",
   ],
   "Domaines IA": [
+    "Modélisation stochastique",
+    "Optimisation markovienne",
     "Détection d'anomalies industrielles",
     "Maintenance prédictive",
     "Analyse de séries temporelles",
     "Systèmes RAG",
-    "Text-to-SQL",
+    "Agents Text-to-SQL",
+    "Routage hybride SQL + RAG",
+    "Désambiguïsation & clarification d'entités",
     "LLMs (GPT-4o, Mistral, DeepSeek)",
     "NLP",
     "Computer Vision",
@@ -294,7 +355,7 @@ export const involvements: Involvement[] = [
   {
     role: "Co-fondateur",
     organization: "Benin AI Community (BAIC)",
-    period: "Depuis janvier 2026",
+    period: "Depuis janvier 2025",
     location: "Cotonou, Bénin",
     logo: placeholder("logo", "/images/logos/benin-ai-community.png"),
     url: "https://beninaicommunity.com/",
