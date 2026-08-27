@@ -3,7 +3,10 @@ import { Container } from "@/components/container";
 import { Section } from "@/components/section";
 import { Card } from "@/components/card";
 import { Badge } from "@/components/badge";
-import { profile, experiences, projects, publications, skills } from "@/lib/data";
+import { HeroBackdrop } from "@/components/hero-backdrop";
+import { SocialLinks } from "@/components/social-links";
+import { DimensionCard } from "@/components/dimension-card";
+import { profile, experiences, projects, publications, skills, pillars } from "@/lib/data";
 
 const stats = [
   { label: "Projets d'IA appliquée", value: "2+" },
@@ -15,12 +18,15 @@ const stats = [
 export default function Home() {
   return (
     <>
-      <section className="border-b border-border py-20 sm:py-28">
-        <Container>
+      <section className="relative overflow-hidden border-b border-border py-20 sm:py-28">
+        <HeroBackdrop />
+        <Container className="relative">
           <div className="animate-fade-up max-w-3xl">
-            <p className="mono-label mb-4 text-xs font-medium text-accent">
-              {profile.title} · {profile.subtitle}
-            </p>
+            <div className="mb-5 flex flex-wrap gap-2">
+              <Badge tone="cyan">{profile.title.toUpperCase()}</Badge>
+              <Badge tone="purple">RECHERCHE APPLIQUÉE</Badge>
+              <Badge tone="pink">CO-FONDATEUR BAIC</Badge>
+            </div>
             <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
               Bonjour, je suis <span className="gradient-text">{profile.name}</span>
             </h1>
@@ -28,7 +34,7 @@ export default function Home() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/projets"
-                className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-contrast transition-opacity hover:opacity-90"
+                className="gradient-btn rounded-full px-5 py-2.5 text-sm font-semibold"
               >
                 Voir mes projets
               </Link>
@@ -42,6 +48,7 @@ export default function Home() {
             <p className="mt-6 text-sm text-muted">
               {profile.location} · {profile.availability}
             </p>
+            <SocialLinks className="mt-6" />
           </div>
         </Container>
       </section>
@@ -62,6 +69,14 @@ export default function Home() {
         title="De la recherche à l'IA appliquée, en production"
         description={profile.summary}
       />
+
+      <Section eyebrow="Mes 3 dimensions" title="Ce que je fais">
+        <div className="grid gap-6 sm:grid-cols-3">
+          {pillars.map((pillar) => (
+            <DimensionCard key={pillar.title} {...pillar} />
+          ))}
+        </div>
+      </Section>
 
       <Section eyebrow="Projets" title="Projets phares">
         <div className="grid gap-6 sm:grid-cols-2">
@@ -135,7 +150,7 @@ export default function Home() {
           </div>
           <Link
             href="/contact"
-            className="shrink-0 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-accent-contrast transition-opacity hover:opacity-90"
+            className="gradient-btn shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold"
           >
             Me contacter
           </Link>
