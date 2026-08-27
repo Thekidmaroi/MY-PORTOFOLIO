@@ -265,6 +265,27 @@ export const conferencePapers: ConferencePaper[] = [
     status: "Accepté",
     media: placeholder("cover", "/images/conferences/ifrane-wind-power.jpg"),
   },
+  {
+    citation:
+      "Participation au Smart Green City Benguerir Africa Forum — « Universities as Catalysts of Frugal, Sovereign, and Social AI for Smart and Inclusive Territories », Université Mohammed VI Polytechnique (UM6P).",
+    location: "Benguerir, Maroc",
+    status: "Participant",
+    media: placeholder("cover", "/images/conferences/smart-green-city-benguerir.jpg"),
+  },
+  {
+    citation:
+      "Intervention en tant que formateur pour la communauté IKHONO — « Sortir de la consommation algorithmique : penser et créer avec l'IA », webinaire en ligne, 20 janvier 2026.",
+    location: "En ligne — Bénin",
+    status: "Formateur",
+    media: placeholder("cover", "/images/conferences/ikhono-webinar.jpg"),
+  },
+  {
+    citation:
+      "Intervention lors du cycle de webinaires du Club UESCOM Valley (Section de Casablanca) — « L'IA Générative : levier de performance ou défi de gouvernance pour les leaders de demain ? », avril 2026.",
+    location: "En ligne — Casablanca, Maroc",
+    status: "Intervenant",
+    media: placeholder("cover", "/images/conferences/uescom-valley-webinar.png"),
+  },
 ];
 
 export type Education = {
@@ -368,7 +389,8 @@ export type Involvement = {
   location: string;
   description: string;
   tags: string[];
-  logo: string;
+  logo?: string;
+  photo?: string;
   url?: string;
 };
 
@@ -383,5 +405,16 @@ export const involvements: Involvement[] = [
     description:
       "Benin AI Community (BAIC) est un hub IA basé à Cotonou dont la mission est de former, fédérer, valoriser et connecter les talents en intelligence artificielle du Bénin, au service d'un écosystème IA durable en Afrique de l'Ouest. La communauté s'articule autour de quatre piliers : la formation (parcours intensifs et ateliers pratiques), la fédération (un réseau inclusif reliant talents, chercheurs et entreprises), la valorisation (mise en avant des projets et succès locaux) et la connexion (passerelles vers l'emploi et l'entrepreneuriat) — le tout porté par des meetups, challenges et sessions de mentorat réguliers. En tant que co-fondateur, je contribue à structurer ces initiatives et à créer des ponts entre les talents IA béninois et les opportunités de recherche et de collaboration à l'international.",
     tags: ["Communauté IA", "Afrique de l'Ouest", "Formation & mentorat", "Écosystème tech"],
+  },
+  {
+    role: "Membre du jury — Hackathon IA & Migration",
+    organization: "OIM Maroc × Benin AI Community",
+    period: "2026 — événement de 2 jours",
+    location: "Rabat, Maroc",
+    photo: placeholder("cover", "/images/associations/oim-maroc-hackathon.jpg"),
+    logo: placeholder("logo", "/images/logos/oim-maroc.png"),
+    description:
+      "Collaboration entre Benin AI Community et l'Organisation Internationale pour les Migrations (OIM) Maroc : un webinaire de sensibilisation à l'intelligence artificielle suivi d'un hackathon durant lequel les équipes ont conçu des solutions IA (chatbots, réintégration personnalisée, suivi intelligent) pour améliorer l'accompagnement des migrants, dans le cadre du Programme de Protection, de Retour et de Réintégration des Migrants en Afrique du Nord (MPRR-NA). J'ai siégé au jury chargé d'évaluer les projets des équipes participantes.",
+    tags: ["IA pour l'impact social", "Hackathon", "Jury", "Migration & réintégration"],
   },
 ];
