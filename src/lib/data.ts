@@ -19,7 +19,7 @@ export const profile = {
   links: {
     github: "https://github.com/Thekidmaroi",
     linkedin: "https://linkedin.com/in/marwane-houngnon",
-    orcid: "#TODO-orcid",
+    orcid: "#https://orcid.org/0009-0001-1644-7451",
     researchgate: "#TODO-researchgate",
   },
   summary:
