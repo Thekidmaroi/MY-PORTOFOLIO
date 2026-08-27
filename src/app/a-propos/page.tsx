@@ -3,7 +3,10 @@ import { PageHeader } from "@/components/page-header";
 import { Section } from "@/components/section";
 import { Card } from "@/components/card";
 import { MediaSlot } from "@/components/media-slot";
+import { DimensionCard } from "@/components/dimension-card";
+import { IconTile, type IconName } from "@/components/icon-tile";
 import { profile, pillars } from "@/lib/data";
+import type { Tone } from "@/components/badge";
 
 export const metadata: Metadata = { title: "À propos" };
 
@@ -31,10 +34,7 @@ export default function AboutPage() {
 
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
               {pillars.map((pillar) => (
-                <div key={pillar.title} className="rounded-2xl border border-border bg-surface-2 p-5">
-                  <h3 className="text-sm font-semibold">{pillar.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">{pillar.text}</p>
-                </div>
+                <DimensionCard key={pillar.title} {...pillar} />
               ))}
             </div>
           </div>
@@ -72,22 +72,31 @@ export default function AboutPage() {
 
       <Section eyebrow="Approche" title="Comment je travaille">
         <div className="grid gap-6 sm:grid-cols-3">
-          {[
-            {
-              title: "Données d'abord",
-              text: "Chaque modèle démarre par une compréhension fine du signal — capteurs, séries temporelles, corpus texte — avant tout choix d'architecture.",
-            },
-            {
-              title: "Rigueur scientifique",
-              text: "Hypothèses testées, métriques rapportées honnêtement (recall, RMSE, biais), résultats reproductibles et publiables.",
-            },
-            {
-              title: "Prêt pour la production",
-              text: "Pipelines conteneurisés, testés, monitorés — pas de notebook isolé. CI/CD, garde-fous, observabilité dès la conception.",
-            },
-          ].map((item) => (
+          {(
+            [
+              {
+                title: "Données d'abord",
+                text: "Chaque modèle démarre par une compréhension fine du signal — capteurs, séries temporelles, corpus texte — avant tout choix d'architecture.",
+                tone: "cyan",
+                icon: "data",
+              },
+              {
+                title: "Rigueur scientifique",
+                text: "Hypothèses testées, métriques rapportées honnêtement (recall, RMSE, biais), résultats reproductibles et publiables.",
+                tone: "purple",
+                icon: "rigor",
+              },
+              {
+                title: "Prêt pour la production",
+                text: "Pipelines conteneurisés, testés, monitorés — pas de notebook isolé. CI/CD, garde-fous, observabilité dès la conception.",
+                tone: "green",
+                icon: "production",
+              },
+            ] satisfies { title: string; text: string; tone: Exclude<Tone, "neutral">; icon: IconName }[]
+          ).map((item) => (
             <Card key={item.title}>
-              <h3 className="font-semibold">{item.title}</h3>
+              <IconTile tone={item.tone} icon={item.icon} />
+              <h3 className="mt-4 font-semibold">{item.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">{item.text}</p>
             </Card>
           ))}

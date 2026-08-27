@@ -19,8 +19,8 @@ export const profile = {
   links: {
     github: "https://github.com/Thekidmaroi",
     linkedin: "https://linkedin.com/in/marwane-houngnon",
-    orcid: "#TODO-orcid",
-    researchgate: "#TODO-researchgate",
+    orcid: "https://orcid.org/0009-0001-1644-7451",
+    researchgate: "https://www.researchgate.net/profile/Marwane-Houngnon",
   },
   summary:
     "AI Research Engineer spécialisé en modélisation stochastique, optimisation markovienne et architectures hybrides probabilistes-neuronales. Auteur publié (Springer Nature, indexé Web of Science), j'ai contribué à des travaux de recherche sur les smart grids, les smart cities et la modélisation des systèmes énergétiques. Mes recherches visent à concevoir des systèmes d'IA interprétables et évolutifs, capables d'intégrer la modélisation probabiliste aux approches d'apprentissage profond. Fort d'une expérience à la fois en laboratoire de recherche et en déploiement industriel, je développe des pipelines d'IA de bout en bout — de la formulation théorique et l'optimisation bayésienne jusqu'à l'implémentation en production via des LLMs. Je m'intéresse particulièrement au développement de systèmes d'IA hybrides pour les infrastructures énergétiques et urbaines, dans une perspective de recherche académique approfondie et de collaboration internationale.",
@@ -30,18 +30,39 @@ export const profile = {
   ],
 };
 
-export const pillars = [
+export type Pillar = {
+  category: string;
+  title: string;
+  text: string;
+  tone: "cyan" | "purple" | "pink";
+  icon: "engineering" | "research" | "community";
+  cta: { label: string; href: string };
+};
+
+export const pillars: Pillar[] = [
   {
+    category: "Ingénierie",
     title: "Ingénieur IA",
     text: "Je conçois et déploie des pipelines de machine learning de bout en bout — de la donnée brute aux dashboards de production, avec Docker, CI/CD et monitoring.",
+    tone: "cyan",
+    icon: "engineering",
+    cta: { label: "Voir l'expérience", href: "/experiences" },
   },
   {
+    category: "Académique",
     title: "Chercheur publié",
     text: "Je documente mes travaux de recherche appliquée (Springer Nature, indexé Web of Science) sur la modélisation probabiliste et les architectures hybrides.",
+    tone: "purple",
+    icon: "research",
+    cta: { label: "Voir les publications", href: "/publications" },
   },
   {
+    category: "Communauté",
     title: "Bâtisseur de communauté",
     text: "Co-fondateur de Benin AI Community, je contribue à former et fédérer les talents IA au Bénin et en Afrique de l'Ouest.",
+    tone: "pink",
+    icon: "community",
+    cta: { label: "En savoir plus", href: "/associations-et-startups" },
   },
 ];
 
@@ -157,7 +178,7 @@ export const projects: Project[] = [
   {
     name: "Industrial AI — Predictive Maintenance for Energy Systems",
     stack: ["Python", "Scikit-learn", "TensorFlow", "Streamlit", "Docker"],
-    githubUrl: "#TODO-github-predictive-maintenance",
+    githubUrl: "https://github.com/Thekidmaroi/industrial-ai-predictive-maintenance",
     description:
       "Pipeline de bout en bout de détection d'anomalies et de prédiction de durée de vie résiduelle (RUL) sur données de séries temporelles SCADA industrielles (capteurs hydrauliques SKAB + moteurs turbofan NASA CMAPSS), pour le monitoring d'infrastructures énergétiques.",
     bullets: [
@@ -175,7 +196,7 @@ export const projects: Project[] = [
   {
     name: "Election Chat — EDAN 2025",
     stack: ["GPT-4o-mini", "FAISS", "DuckDB", "RAG", "Streamlit"],
-    githubUrl: "#TODO-github-election-chat",
+    githubUrl: "https://github.com/Thekidmaroi/election-chat",
     description:
       "Agent conversationnel d'IA sur les résultats officiels des élections de l'Assemblée nationale ivoirienne (27 décembre 2025), avec des données sourcées directement auprès de la Commission Électorale Indépendante (CEI).",
     bullets: [
@@ -243,6 +264,27 @@ export const conferencePapers: ConferencePaper[] = [
     location: "Ifrane, Maroc",
     status: "Accepté",
     media: placeholder("cover", "/images/conferences/ifrane-wind-power.jpg"),
+  },
+  {
+    citation:
+      "Participation au Smart Green City Benguerir Africa Forum — « Universities as Catalysts of Frugal, Sovereign, and Social AI for Smart and Inclusive Territories », Université Mohammed VI Polytechnique (UM6P).",
+    location: "Benguerir, Maroc",
+    status: "Participant",
+    media: placeholder("cover", "/images/conferences/smart-green-city-benguerir.jpg"),
+  },
+  {
+    citation:
+      "Intervention en tant que formateur pour la communauté IKHONO — « Sortir de la consommation algorithmique : penser et créer avec l'IA », webinaire en ligne, 20 janvier 2026.",
+    location: "En ligne — Bénin",
+    status: "Formateur",
+    media: placeholder("cover", "/images/conferences/ikhono-webinar.jpg"),
+  },
+  {
+    citation:
+      "Intervention lors du cycle de webinaires du Club UESCOM Valley (Section de Casablanca) — « L'IA Générative : levier de performance ou défi de gouvernance pour les leaders de demain ? », avril 2026.",
+    location: "En ligne — Casablanca, Maroc",
+    status: "Intervenant",
+    media: placeholder("cover", "/images/conferences/uescom-valley-webinar.png"),
   },
 ];
 
@@ -347,7 +389,8 @@ export type Involvement = {
   location: string;
   description: string;
   tags: string[];
-  logo: string;
+  logo?: string;
+  photo?: string;
   url?: string;
 };
 
@@ -362,5 +405,16 @@ export const involvements: Involvement[] = [
     description:
       "Benin AI Community (BAIC) est un hub IA basé à Cotonou dont la mission est de former, fédérer, valoriser et connecter les talents en intelligence artificielle du Bénin, au service d'un écosystème IA durable en Afrique de l'Ouest. La communauté s'articule autour de quatre piliers : la formation (parcours intensifs et ateliers pratiques), la fédération (un réseau inclusif reliant talents, chercheurs et entreprises), la valorisation (mise en avant des projets et succès locaux) et la connexion (passerelles vers l'emploi et l'entrepreneuriat) — le tout porté par des meetups, challenges et sessions de mentorat réguliers. En tant que co-fondateur, je contribue à structurer ces initiatives et à créer des ponts entre les talents IA béninois et les opportunités de recherche et de collaboration à l'international.",
     tags: ["Communauté IA", "Afrique de l'Ouest", "Formation & mentorat", "Écosystème tech"],
+  },
+  {
+    role: "Membre du jury — Hackathon IA & Migration",
+    organization: "OIM Maroc × Benin AI Community",
+    period: "2026 — événement de 2 jours",
+    location: "Rabat, Maroc",
+    photo: placeholder("cover", "/images/associations/oim-maroc-hackathon.jpg"),
+    logo: placeholder("logo", "/images/logos/oim-maroc.png"),
+    description:
+      "Collaboration entre Benin AI Community et l'Organisation Internationale pour les Migrations (OIM) Maroc : un webinaire de sensibilisation à l'intelligence artificielle suivi d'un hackathon durant lequel les équipes ont conçu des solutions IA (chatbots, réintégration personnalisée, suivi intelligent) pour améliorer l'accompagnement des migrants, dans le cadre du Programme de Protection, de Retour et de Réintégration des Migrants en Afrique du Nord (MPRR-NA). J'ai siégé au jury chargé d'évaluer les projets des équipes participantes.",
+    tags: ["IA pour l'impact social", "Hackathon", "Jury", "Migration & réintégration"],
   },
 ];

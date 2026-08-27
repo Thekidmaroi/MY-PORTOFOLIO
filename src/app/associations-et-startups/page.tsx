@@ -21,13 +21,23 @@ export default function InvolvementsPage() {
         <div className="space-y-6">
           {involvements.map((item) => (
             <Card key={item.organization}>
-              <div className="flex flex-col gap-6 sm:flex-row">
+              {item.photo && (
                 <MediaSlot
-                  src={item.logo}
-                  alt={`Logo ${item.organization}`}
-                  variant="logo"
-                  className="h-16 w-16 shrink-0"
+                  src={item.photo}
+                  alt={`Photo — ${item.organization}`}
+                  variant="cover"
+                  className="mb-5 aspect-video w-full"
                 />
+              )}
+              <div className="flex flex-col gap-6 sm:flex-row">
+                {item.logo && (
+                  <MediaSlot
+                    src={item.logo}
+                    alt={`Logo ${item.organization}`}
+                    variant="logo"
+                    className="h-16 w-16 shrink-0"
+                  />
+                )}
                 <div className="flex-1">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <h3 className="text-lg font-semibold">
