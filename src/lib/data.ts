@@ -30,18 +30,39 @@ export const profile = {
   ],
 };
 
-export const pillars = [
+export type Pillar = {
+  category: string;
+  title: string;
+  text: string;
+  tone: "cyan" | "purple" | "pink";
+  icon: "engineering" | "research" | "community";
+  cta: { label: string; href: string };
+};
+
+export const pillars: Pillar[] = [
   {
+    category: "Ingénierie",
     title: "Ingénieur IA",
     text: "Je conçois et déploie des pipelines de machine learning de bout en bout — de la donnée brute aux dashboards de production, avec Docker, CI/CD et monitoring.",
+    tone: "cyan",
+    icon: "engineering",
+    cta: { label: "Voir l'expérience", href: "/experiences" },
   },
   {
+    category: "Académique",
     title: "Chercheur publié",
     text: "Je documente mes travaux de recherche appliquée (Springer Nature, indexé Web of Science) sur la modélisation probabiliste et les architectures hybrides.",
+    tone: "purple",
+    icon: "research",
+    cta: { label: "Voir les publications", href: "/publications" },
   },
   {
+    category: "Communauté",
     title: "Bâtisseur de communauté",
     text: "Co-fondateur de Benin AI Community, je contribue à former et fédérer les talents IA au Bénin et en Afrique de l'Ouest.",
+    tone: "pink",
+    icon: "community",
+    cta: { label: "En savoir plus", href: "/associations-et-startups" },
   },
 ];
 
