@@ -157,7 +157,7 @@ export const projects: Project[] = [
   {
     name: "Industrial AI — Predictive Maintenance for Energy Systems",
     stack: ["Python", "Scikit-learn", "TensorFlow", "Streamlit", "Docker"],
-    githubUrl: "#TODO-github-predictive-maintenance",
+    githubUrl: "https://github.com/Thekidmaroi/industrial-ai-predictive-maintenance",
     description:
       "Pipeline de bout en bout de détection d'anomalies et de prédiction de durée de vie résiduelle (RUL) sur données de séries temporelles SCADA industrielles (capteurs hydrauliques SKAB + moteurs turbofan NASA CMAPSS), pour le monitoring d'infrastructures énergétiques.",
     bullets: [
@@ -175,7 +175,7 @@ export const projects: Project[] = [
   {
     name: "Election Chat — EDAN 2025",
     stack: ["GPT-4o-mini", "FAISS", "DuckDB", "RAG", "Streamlit"],
-    githubUrl: "#TODO-github-election-chat",
+    githubUrl: "https://github.com/Thekidmaroi/election-chat",
     description:
       "Agent conversationnel d'IA sur les résultats officiels des élections de l'Assemblée nationale ivoirienne (27 décembre 2025), avec des données sourcées directement auprès de la Commission Électorale Indépendante (CEI).",
     bullets: [
