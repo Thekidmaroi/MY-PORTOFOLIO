@@ -102,3 +102,129 @@ body {
 .animate-fade-up {
   animation: fade-up 0.6s ease-out both;
 }
+
+/* --- Design system: dégradés & tons --- */
+
+.gradient-btn {
+  background: linear-gradient(120deg, var(--accent-2), var(--accent));
+  color: #fff;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.gradient-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+:root[data-theme="dark"] .gradient-btn,
+:root:not([data-theme="light"]) .gradient-btn {
+  color: #06110f;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .gradient-btn {
+    color: #fff;
+  }
+}
+
+/* Tons pour badges/pills et icon tiles : cyan, purple, pink, green */
+:root {
+  --tone-cyan-fg: #0f9c8f;
+  --tone-cyan-bg: rgba(15, 156, 143, 0.12);
+  --tone-cyan-border: rgba(15, 156, 143, 0.35);
+
+  --tone-purple-fg: #6a5cf5;
+  --tone-purple-bg: rgba(106, 92, 245, 0.12);
+  --tone-purple-border: rgba(106, 92, 245, 0.35);
+
+  --tone-pink-fg: #d6499a;
+  --tone-pink-bg: rgba(214, 73, 154, 0.12);
+  --tone-pink-border: rgba(214, 73, 154, 0.35);
+
+  --tone-green-fg: #2f9e5b;
+  --tone-green-bg: rgba(47, 158, 91, 0.12);
+  --tone-green-border: rgba(47, 158, 91, 0.35);
+}
+
+:root[data-theme="dark"],
+:root:not([data-theme="light"]) {
+  @media (prefers-color-scheme: dark) {
+    --tone-cyan-fg: #2dd4bf;
+    --tone-cyan-bg: rgba(45, 212, 191, 0.12);
+    --tone-cyan-border: rgba(45, 212, 191, 0.3);
+
+    --tone-purple-fg: #8b7cf6;
+    --tone-purple-bg: rgba(139, 124, 246, 0.14);
+    --tone-purple-border: rgba(139, 124, 246, 0.32);
+
+    --tone-pink-fg: #f472b6;
+    --tone-pink-bg: rgba(244, 114, 182, 0.12);
+    --tone-pink-border: rgba(244, 114, 182, 0.3);
+
+    --tone-green-fg: #4ade80;
+    --tone-green-bg: rgba(74, 222, 128, 0.12);
+    --tone-green-border: rgba(74, 222, 128, 0.3);
+  }
+}
+
+:root[data-theme="dark"] {
+  --tone-cyan-fg: #2dd4bf;
+  --tone-cyan-bg: rgba(45, 212, 191, 0.12);
+  --tone-cyan-border: rgba(45, 212, 191, 0.3);
+
+  --tone-purple-fg: #8b7cf6;
+  --tone-purple-bg: rgba(139, 124, 246, 0.14);
+  --tone-purple-border: rgba(139, 124, 246, 0.32);
+
+  --tone-pink-fg: #f472b6;
+  --tone-pink-bg: rgba(244, 114, 182, 0.12);
+  --tone-pink-border: rgba(244, 114, 182, 0.3);
+
+  --tone-green-fg: #4ade80;
+  --tone-green-bg: rgba(74, 222, 128, 0.12);
+  --tone-green-border: rgba(74, 222, 128, 0.3);
+}
+
+.hero-backdrop {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+}
+
+.hero-backdrop svg {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+}
+
+.hero-backdrop .plexus-line {
+  animation: plexus-drift 14s ease-in-out infinite alternate;
+}
+
+.hero-backdrop .plexus-line:nth-child(2n) {
+  animation-duration: 18s;
+  animation-direction: alternate-reverse;
+}
+
+.hero-backdrop .plexus-line:nth-child(3n) {
+  animation-duration: 22s;
+}
+
+@keyframes plexus-drift {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(8px, -10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-backdrop .plexus-line {
+    animation: none;
+  }
+}
