@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/page-header";
 import { Section } from "@/components/section";
 import { Card } from "@/components/card";
-import { Badge } from "@/components/badge";
+import { SkillChip } from "@/components/skill-chip";
 import { skills } from "@/lib/data";
 
 export const metadata: Metadata = { title: "Compétences" };
@@ -22,8 +22,8 @@ export default function SkillsPage() {
             <Card key={category}>
               <h3 className="font-semibold">{category}</h3>
               <div className="mt-4 flex flex-wrap gap-2">
-                {items.map((skill) => (
-                  <Badge key={skill}>{skill}</Badge>
+                {items.map((skill, index) => (
+                  <SkillChip key={skill} skill={skill} index={index} />
                 ))}
               </div>
             </Card>
