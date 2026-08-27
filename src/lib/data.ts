@@ -19,8 +19,8 @@ export const profile = {
   links: {
     github: "https://github.com/Thekidmaroi",
     linkedin: "https://linkedin.com/in/marwane-houngnon",
-    orcid: "#https://orcid.org/0009-0001-1644-7451",
-    researchgate: "#TODO-researchgate",
+    orcid: "https://orcid.org/0009-0001-1644-7451",
+    researchgate: "https://www.researchgate.net/profile/Marwane-Houngnon",
   },
   summary:
     "AI Research Engineer spécialisé en modélisation stochastique, optimisation markovienne et architectures hybrides probabilistes-neuronales. Auteur publié (Springer Nature, indexé Web of Science), j'ai contribué à des travaux de recherche sur les smart grids, les smart cities et la modélisation des systèmes énergétiques. Mes recherches visent à concevoir des systèmes d'IA interprétables et évolutifs, capables d'intégrer la modélisation probabiliste aux approches d'apprentissage profond. Fort d'une expérience à la fois en laboratoire de recherche et en déploiement industriel, je développe des pipelines d'IA de bout en bout — de la formulation théorique et l'optimisation bayésienne jusqu'à l'implémentation en production via des LLMs. Je m'intéresse particulièrement au développement de systèmes d'IA hybrides pour les infrastructures énergétiques et urbaines, dans une perspective de recherche académique approfondie et de collaboration internationale.",
