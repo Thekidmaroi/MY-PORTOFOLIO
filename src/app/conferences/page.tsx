@@ -20,12 +20,26 @@ export default function ConferencesPage() {
         <div className="space-y-6">
           {conferencePapers.map((paper) => (
             <Card key={paper.citation}>
-              <MediaSlot
-                src={paper.media}
-                alt={`Photo — ${paper.location}`}
-                variant="cover"
-                                className="mb-5 aspect-[4/3] w-full"
-              />
+              <div
+                className={`mb-5 grid gap-3 ${
+                  paper.photos.length > 1 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1"
+                }`}
+              >
+                {paper.photos.map((photo) => (
+                  <MediaSlot
+                    key={photo}
+                    src={photo}
+                    alt={`Photo — ${paper.location}`}
+                    variant="cover"
+                    className="aspect-[4/3] w-full"
+                    sizes={
+                      paper.photos.length > 1
+                        ? "(min-width: 640px) 420px, 100vw"
+                        : "(min-width: 1024px) 800px, 100vw"
+                    }
+                  />
+                ))}
+              </div>
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <p className="mono-label text-xs text-accent">Communication</p>
                 {paper.status && (
