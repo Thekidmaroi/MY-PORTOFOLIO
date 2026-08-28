@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageHeader } from "@/components/page-header";
 import { Section } from "@/components/section";
 import { Card } from "@/components/card";
@@ -20,31 +21,13 @@ export default function AboutPage() {
       />
 
       <Section>
-        <div className="grid gap-10 sm:grid-cols-3">
-          <div className="sm:col-span-2">
-            <p className="text-[15px] leading-relaxed text-muted">{profile.summary}</p>
-            <p className="mt-4 text-[15px] leading-relaxed text-muted">
-              Mon travail se situe à l&apos;intersection de la modélisation probabiliste (chaînes de Markov,
-              filtrage) et de l&apos;apprentissage profond, appliquée à des problèmes concrets : anomalies sur
-              données de capteurs, prédiction de durée de vie résiduelle, ou agents conversationnels fiables sur
-              des données sensibles. Je documente et publie une partie de cette recherche (Springer Nature, Web
-              of Science), tout en gardant un ancrage fort dans le déploiement production — Docker, CI/CD,
-              monitoring, garde-fous.
-            </p>
-
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {pillars.map((pillar) => (
-                <DimensionCard key={pillar.title} {...pillar} />
-              ))}
-            </div>
-          </div>
-
+        <div className="grid gap-10 lg:grid-cols-[380px_1fr] lg:items-start">
           <div className="space-y-6">
             <MediaSlot
               src={profile.photo}
               alt={`Photo de ${profile.name}`}
-              variant="avatar"
-              className="h-40 w-40"
+              variant="cover"
+              className="aspect-[4/5] w-full"
             />
 
             <Card>
@@ -67,6 +50,58 @@ export default function AboutPage() {
               </dl>
             </Card>
           </div>
+          <div>
+            <p className="mono-label text-xs font-medium text-accent">Biographie</p>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">{profile.name}</h2>
+
+            <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-muted">
+              <p>
+                Ingénieur en <strong className="font-semibold text-foreground">Intelligence Artificielle &amp; Big Data</strong>, je
+                suis <strong className="font-semibold text-foreground">AI Research Engineer</strong> spécialisé en{" "}
+                <strong className="font-semibold text-foreground">modélisation stochastique et optimisation markovienne</strong>, à la
+                croisée de la recherche appliquée et de l&apos;ingénierie de production. Auteur publié (Springer Nature, indexé Web
+                of Science), mes travaux portent sur les smart grids, les smart cities et la modélisation des systèmes
+                énergétiques — retrouvables dans mes{" "}
+                <Link href="/publications" className="font-semibold text-accent hover:underline">
+                  publications
+                </Link>
+                .
+              </p>
+
+              <p>
+                Mon travail se situe à l&apos;intersection de la modélisation probabiliste (chaînes de Markov, filtrage) et de
+                l&apos;apprentissage profond, appliquée à des problèmes concrets : anomalies sur données de capteurs, prédiction de
+                durée de vie résiduelle, ou agents conversationnels fiables sur des données sensibles.
+              </p>
+
+              <p>
+                Fort d&apos;une expérience à la fois en laboratoire de recherche et en déploiement industriel, je développe des{" "}
+                <strong className="font-semibold text-foreground">pipelines d&apos;IA de bout en bout</strong> — de la formulation
+                théorique et l&apos;optimisation bayésienne jusqu&apos;à l&apos;implémentation en production via des LLMs, avec
+                Docker, CI/CD et monitoring.
+              </p>
+
+              <p>
+                Depuis janvier 2025, j&apos;ai co-fondé{" "}
+                <Link href="/associations-et-startups" className="font-semibold text-accent hover:underline">
+                  Benin AI Community (BAIC)
+                </Link>
+                , une communauté dédiée à former, fédérer et connecter les talents en intelligence artificielle du Bénin, au
+                service d&apos;un écosystème IA durable en Afrique de l&apos;Ouest.
+              </p>
+
+              <p className="italic">
+                Je m&apos;intéresse particulièrement au développement de systèmes d&apos;IA hybrides pour les infrastructures
+                énergétiques et urbaines, dans une perspective de recherche académique approfondie et de collaboration
+                internationale.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="mt-12 grid gap-4 sm:grid-cols-3">
+          {pillars.map((pillar) => (
+            <DimensionCard key={pillar.title} {...pillar} />
+          ))}
         </div>
       </Section>
 
