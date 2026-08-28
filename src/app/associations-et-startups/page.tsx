@@ -21,13 +21,31 @@ export default function InvolvementsPage() {
         <div className="space-y-6">
           {involvements.map((item) => (
             <Card key={item.organization}>
-              {item.photo && (
-                <MediaSlot
-                  src={item.photo}
-                  alt={`Photo — ${item.organization}`}
-                  variant="cover"
-                  className="mb-5 aspect-video w-full"
-                />
+              {item.photos && item.photos.length > 0 ? (
+                <div
+                  className={`mb-5 grid gap-3 ${
+                    item.photos.length > 1 ? "grid-cols-2" : "grid-cols-1"
+                  }`}
+                >
+                  {item.photos.map((photo) => (
+                    <MediaSlot
+                      key={photo}
+                      src={photo}
+                      alt={`Photo — ${item.organization}`}
+                      variant="cover"
+                      className="aspect-video w-full"
+                    />
+                  ))}
+                </div>
+              ) : (
+                item.photo && (
+                  <MediaSlot
+                    src={item.photo}
+                    alt={`Photo — ${item.organization}`}
+                    variant="cover"
+                    className="mb-5 aspect-video w-full"
+                  />
+                )
               )}
               <div className="flex flex-col gap-6 sm:flex-row">
                 {item.logo && (
