@@ -24,7 +24,7 @@ export default function InvolvementsPage() {
               {item.photos && item.photos.length > 0 ? (
                 <div
                   className={`mb-5 grid gap-3 ${
-                    item.photos.length > 1 ? "grid-cols-2" : "grid-cols-1"
+                                        item.photos.length > 1 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1"
                   }`}
                 >
                   {item.photos.map((photo) => (
@@ -33,7 +33,12 @@ export default function InvolvementsPage() {
                       src={photo}
                       alt={`Photo — ${item.organization}`}
                       variant="cover"
-                      className="aspect-video w-full"
+                                            className="aspect-[4/3] w-full"
+                      sizes={
+                        item.photos!.length > 1
+                          ? "(min-width: 640px) 420px, 100vw"
+                          : "(min-width: 1024px) 800px, 100vw"
+                      }
                     />
                   ))}
                 </div>
@@ -43,7 +48,7 @@ export default function InvolvementsPage() {
                     src={item.photo}
                     alt={`Photo — ${item.organization}`}
                     variant="cover"
-                    className="mb-5 aspect-video w-full"
+                                        className="mb-5 aspect-[4/3] w-full"
                   />
                 )
               )}
