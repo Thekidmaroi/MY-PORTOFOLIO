@@ -8,6 +8,15 @@ import { involvements } from "@/lib/data";
 
 export const metadata: Metadata = { title: "Associations & Startups" };
 
+// Certaines photos (captures d'écran de posts Instagram) ont le sujet cadré
+// plus haut que le centre de l'image — sans ce recadrage, le crop par défaut
+// (centré) coupe les têtes. On force ici le point de focus vertical pour ces
+// photos précises.
+const PHOTO_FOCUS: Record<string, string> = {
+  "/OIM%20X%20BAIC.PNG": "50% 28%",
+  "/OIM%20X%20BAIC%20(2).PNG": "50% 28%",
+};
+
 export default function InvolvementsPage() {
   return (
     <>
@@ -24,7 +33,7 @@ export default function InvolvementsPage() {
               {item.photos && item.photos.length > 0 ? (
                 <div
                   className={`mb-5 grid gap-3 ${
-                                        item.photos.length > 1 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1"
+                    item.photos.length > 1 ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1"
                   }`}
                 >
                   {item.photos.map((photo) => (
@@ -33,7 +42,8 @@ export default function InvolvementsPage() {
                       src={photo}
                       alt={`Photo — ${item.organization}`}
                       variant="cover"
-                                            className="aspect-[4/3] w-full"
+                      className="aspect-[4/3] w-full"
+                      objectPosition={PHOTO_FOCUS[photo]}
                       sizes={
                         item.photos!.length > 1
                           ? "(min-width: 640px) 420px, 100vw"
@@ -48,7 +58,7 @@ export default function InvolvementsPage() {
                     src={item.photo}
                     alt={`Photo — ${item.organization}`}
                     variant="cover"
-                                        className="mb-5 aspect-[4/3] w-full"
+                    className="mb-5 aspect-[4/3] w-full"
                   />
                 )
               )}
