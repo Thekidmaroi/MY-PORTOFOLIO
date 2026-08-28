@@ -50,6 +50,7 @@ export function MediaSlot({
   className = "",
   sizes,
   quality = 90,
+  objectPosition,
 }: {
   src: string;
   alt: string;
@@ -57,6 +58,7 @@ export function MediaSlot({
   className?: string;
   sizes?: string;
   quality?: number;
+  objectPosition?: string;
 }) {
   const parsed = parsePlaceholder(src);
 
@@ -79,6 +81,7 @@ export function MediaSlot({
         alt={alt}
         fill
         className="object-cover"
+        style={objectPosition ? { objectPosition } : undefined}
         sizes={sizes ?? defaultSizes[variant]}
         quality={quality}
       />
