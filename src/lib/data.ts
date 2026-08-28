@@ -219,6 +219,7 @@ export type Publication = {
   venue: string;
   status?: string;
   doi?: string;
+  photo?: string;
 };
 
 export const publications: Publication[] = [
@@ -228,6 +229,7 @@ export const publications: Publication[] = [
       "Bounnite, M. Y., & Houngnon, M. (2026). Missing-Data Robust EM for Incentive-Aware Markovian Smart Grid Optimization.",
     venue: "Artificial Intelligence and Cognitive Sciences for Emerging Technologies, Springer Nature (indexé Web of Science) — Marrakech, Maroc",
     doi: "10.1007/978-3-032-14430-0_42",
+    photo: "/CONF%20MARAKECH.JPG",
   },
   {
     type: "Article de revue",
@@ -408,6 +410,7 @@ export const involvements: Involvement[] = [
     period: "Depuis janvier 2025",
     location: "Cotonou, Bénin",
     logo: placeholder("logo", "/images/logos/benin-ai-community.png"),
+    photo: "/Podcast%20pour%20BAIC.JPG",
     url: "https://beninaicommunity.com/",
     description:
       "Benin AI Community (BAIC) est un hub IA basé à Cotonou dont la mission est de former, fédérer, valoriser et connecter les talents en intelligence artificielle du Bénin, au service d'un écosystème IA durable en Afrique de l'Ouest. La communauté s'articule autour de quatre piliers : la formation (parcours intensifs et ateliers pratiques), la fédération (un réseau inclusif reliant talents, chercheurs et entreprises), la valorisation (mise en avant des projets et succès locaux) et la connexion (passerelles vers l'emploi et l'entrepreneuriat) — le tout porté par des meetups, challenges et sessions de mentorat réguliers. En tant que co-fondateur, je contribue à structurer ces initiatives et à créer des ponts entre les talents IA béninois et les opportunités de recherche et de collaboration à l'international.",
