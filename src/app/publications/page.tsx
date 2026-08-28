@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/page-header";
 import { Section } from "@/components/section";
 import { Card } from "@/components/card";
+import { MediaSlot } from "@/components/media-slot";
 import { publications, profile } from "@/lib/data";
 
 export const metadata: Metadata = { title: "Publications" };
@@ -19,6 +20,14 @@ export default function PublicationsPage() {
         <div className="space-y-6">
           {publications.map((pub) => (
             <Card key={pub.citation}>
+              {pub.photo && (
+                <MediaSlot
+                  src={pub.photo}
+                  alt={`Photo — ${pub.venue}`}
+                  variant="cover"
+                  className="mb-5 aspect-video w-full"
+                />
+              )}
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <p className="mono-label text-xs text-accent">{pub.type}</p>
                 {pub.status && (
