@@ -7,7 +7,6 @@ const shapeClasses: Record<MediaVariant, string> = {
   school: "rounded-xl",
   cover: "rounded-xl",
 };
-
 const icons: Record<MediaVariant, React.ReactNode> = {
   avatar: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-6 w-6">
@@ -35,17 +34,29 @@ const icons: Record<MediaVariant, React.ReactNode> = {
     </svg>
   ),
 };
-
+// Tailles CSS reelles par defaut selon le variant (utilisees pour generer un
+// srcset next/image adapte, evite de servir une image minuscule et floue
+// dans un conteneur beaucoup plus grand, ex: les photos "cover").
+const defaultSizes: Record<MediaVariant, string> = {
+  avatar: "200px",
+  logo: "200px",
+  school: "200px",
+  cover: "(min-width: 1024px) 800px, 100vw",
+};
 export function MediaSlot({
   src,
   alt,
   variant,
   className = "",
+  sizes,
+  quality = 90,
 }: {
   src: string;
   alt: string;
   variant: MediaVariant;
   className?: string;
+  sizes?: string;
+  quality?: number;
 }) {
   const parsed = parsePlaceholder(src);
 
@@ -63,7 +74,14 @@ export function MediaSlot({
 
   return (
     <div className={`relative overflow-hidden border border-border ${shapeClasses[variant]} ${className}`}>
-      <Image src={src} alt={alt} fill className="object-cover" sizes="200px" />
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className="object-cover"
+        sizes={sizes ?? defaultSizes[variant]}
+        quality={quality}
+      />
     </div>
   );
 }
