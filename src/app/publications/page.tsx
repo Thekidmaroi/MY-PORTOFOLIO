@@ -25,7 +25,7 @@ export default function PublicationsPage() {
                   src={pub.photo}
                   alt={`Photo — ${pub.venue}`}
                   variant="cover"
-                  className="mb-5 aspect-video w-full"
+                                    className="mb-5 aspect-[4/3] w-full"
                 />
               )}
               <div className="flex flex-wrap items-center justify-between gap-2">
