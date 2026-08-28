@@ -400,6 +400,7 @@ export type Involvement = {
   tags: string[];
   logo?: string;
   photo?: string;
+  photos?: string[];
   url?: string;
 };
 
@@ -409,8 +410,7 @@ export const involvements: Involvement[] = [
     organization: "Benin AI Community (BAIC)",
     period: "Depuis janvier 2025",
     location: "Cotonou, Bénin",
-    logo: placeholder("logo", "/images/logos/benin-ai-community.png"),
-    photo: "/Podcast%20pour%20BAIC.JPG",
+    logo: "/images/logos/benin-ai-community.webp",
     url: "https://beninaicommunity.com/",
     description:
       "Benin AI Community (BAIC) est un hub IA basé à Cotonou dont la mission est de former, fédérer, valoriser et connecter les talents en intelligence artificielle du Bénin, au service d'un écosystème IA durable en Afrique de l'Ouest. La communauté s'articule autour de quatre piliers : la formation (parcours intensifs et ateliers pratiques), la fédération (un réseau inclusif reliant talents, chercheurs et entreprises), la valorisation (mise en avant des projets et succès locaux) et la connexion (passerelles vers l'emploi et l'entrepreneuriat) — le tout porté par des meetups, challenges et sessions de mentorat réguliers. En tant que co-fondateur, je contribue à structurer ces initiatives et à créer des ponts entre les talents IA béninois et les opportunités de recherche et de collaboration à l'international.",
@@ -421,10 +421,22 @@ export const involvements: Involvement[] = [
     organization: "OIM Maroc × Benin AI Community",
     period: "2026 — événement de 2 jours",
     location: "Rabat, Maroc",
-    photo: "/IOM%20X%20BAIC.JPG",
+    photos: ["/IOM%20X%20BAIC.JPG"],
     logo: placeholder("logo", "/images/logos/oim-maroc.png"),
+    url: "https://beninaicommunity.com/realisations",
     description:
       "Collaboration entre Benin AI Community et l'Organisation Internationale pour les Migrations (OIM) Maroc : un webinaire de sensibilisation à l'intelligence artificielle suivi d'un hackathon durant lequel les équipes ont conçu des solutions IA (chatbots, réintégration personnalisée, suivi intelligent) pour améliorer l'accompagnement des migrants, dans le cadre du Programme de Protection, de Retour et de Réintégration des Migrants en Afrique du Nord (MPRR-NA). J'ai siégé au jury chargé d'évaluer les projets des équipes participantes.",
     tags: ["IA pour l'impact social", "Hackathon", "Jury", "Migration & réintégration"],
+  },
+  {
+    role: "Modérateur de panel puis consultant ateliers",
+    organization: "L'Aube de l'IA — École Hestim",
+    period: "2025",
+    location: "Maroc",
+    photos: ["/L'AUBE%20DE%20L'IA.jpeg", "/L'AUBE%20DE%20L'IA.jpg"],
+    logo: placeholder("logo", "/images/logos/hestim.png"),
+    description:
+      "Invité à la conférence « L'Aube de l'IA », organisée par l'École Hestim : d'abord comme modérateur du panel de discussion, puis sollicité comme consultant pour animer des ateliers pratiques autour de l'intelligence artificielle auprès des participants.",
+    tags: ["Intelligence artificielle", "Animation d'ateliers", "Modération de panel", "Vulgarisation"],
   },
 ];
