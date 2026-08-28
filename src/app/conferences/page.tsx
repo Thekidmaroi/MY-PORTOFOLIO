@@ -24,7 +24,7 @@ export default function ConferencesPage() {
                 src={paper.media}
                 alt={`Photo — ${paper.location}`}
                 variant="cover"
-                className="mb-5 aspect-video w-full"
+                                className="mb-5 aspect-[4/3] w-full"
               />
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <p className="mono-label text-xs text-accent">Communication</p>
