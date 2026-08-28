@@ -244,7 +244,7 @@ export type ConferencePaper = {
   citation: string;
   location: string;
   status?: string;
-  media: string;
+  photos: string[];
 };
 
 export const conferencePapers: ConferencePaper[] = [
@@ -252,48 +252,52 @@ export const conferencePapers: ConferencePaper[] = [
     citation:
       "Houngnon, M., & Bounnite, M. Y. Markov-Optimized Resource Allocation for Sustainable 6G Mediterranean Smart Cities.",
     location: "Tétouan, Maroc",
-    media: "/CONF%20TETOUAN.jpg",
+    photos: ["/CONF%20TETOUAN.jpg", "/CONF%20TETOUAN%20(2).jpg", "/CONF%20TETOUAN.PNG"],
   },
   {
     citation:
       "Houngnon, M., & Bounnite, M. Y. Modeling Smart City Governance Transitions with HMM and Public IoT Data.",
     location: "Dakhla, Maroc",
-    media: "/d3d039ea-a4a2-4339-a39e-96c64da54689.JPG",
+    photos: ["/CONF%20DAKHLA.JPG", "/d3d039ea-a4a2-4339-a39e-96c64da54689.JPG"],
   },
   {
     citation:
       "Houngnon, M., & Bounnite, M. Y. AI-Enhanced Reliable Stochastic Modeling for Wind Power Forecasting: Addressing Practical Challenges in Hybrid Framework Deployment.",
     location: "Ifrane, Maroc",
     status: "Accepté",
-    media: "/CONF%20ENERGIE%20FUTUR%20IFRANE%20(2).JPG",
+    photos: [
+      "/CONF%20ENERGIE%20FUTUR%20IFRANE%20(2).JPG",
+      "/CONF%20ENERGIE%20FUTUR%20IFRANE.jpg",
+      "/CONF%20ENERGIE%20FUTUR%20IFRANE.jpeg",
+    ],
   },
   {
     citation:
       "Participation au Smart Green City Benguerir Africa Forum — « Universities as Catalysts of Frugal, Sovereign, and Social AI for Smart and Inclusive Territories », Université Mohammed VI Polytechnique (UM6P).",
     location: "Benguerir, Maroc",
     status: "Participant",
-    media: "/SMART%20CITY%20CONF%20UM6P%20BENGUERIR.JPG",
+    photos: ["/SMART%20CITY%20CONF%20UM6P%20BENGUERIR.JPG"],
   },
   {
     citation:
       "Intervention en tant que formateur pour la communauté IKHONO — « Sortir de la consommation algorithmique : penser et créer avec l'IA », webinaire en ligne, 20 janvier 2026.",
     location: "En ligne — Bénin",
     status: "Formateur",
-    media: "/IKHONO.jpg",
+    photos: ["/IKHONO.jpg"],
   },
   {
     citation:
       "Intervention lors du cycle de webinaires du Club UESCOM Valley (Section de Casablanca) — « L'IA Générative : levier de performance ou défi de gouvernance pour les leaders de demain ? », avril 2026.",
     location: "En ligne — Casablanca, Maroc",
     status: "Intervenant",
-    media: "/uscom.png",
+    photos: ["/uscom.png"],
   },
   {
     citation:
       "Participation au ROADEM'25 — 2nd International Conference of the Moroccan Association of Operational Research and Decision Support (LOSIPE, ENSA El Jadida), sur le thème « Industry 4.0 Transformation: Towards Sustainable and Resilient Competitiveness ».",
     location: "El Jadida, Maroc",
     status: "Participant",
-    media: "/IMG_1321.jpeg",
+    photos: ["/IMG_1321.jpeg"],
   },
 ];
 
@@ -421,7 +425,13 @@ export const involvements: Involvement[] = [
     organization: "OIM Maroc × Benin AI Community",
     period: "2026 — événement de 2 jours",
     location: "Rabat, Maroc",
-    photos: ["/IOM%20X%20BAIC.JPG"],
+    photos: [
+      "/IOM%20X%20BAIC.JPG",
+      "/OIM%20X%20BAIC.jpeg",
+      "/OIM%20X%20BAIC.PNG",
+      "/OIM%20X%20BAIC%20(2).PNG",
+      "/OIM%20X%20BAIC%20(3).jpeg",
+    ],
     logo: placeholder("logo", "/images/logos/oim-maroc.png"),
     url: "https://beninaicommunity.com/realisations",
     description:
