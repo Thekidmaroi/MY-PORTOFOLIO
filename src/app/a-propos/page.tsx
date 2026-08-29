@@ -28,6 +28,7 @@ export default function AboutPage() {
               alt={`Photo de ${profile.name}`}
               variant="cover"
               className="aspect-[4/5] w-full"
+              objectPosition="50% 15%"
             />
 
             <Card>
