@@ -15,7 +15,7 @@ export const profile = {
   phone: "+212 641-364-029",
   email: "alberichoun.del@gmail.com",
   availability: "Ouvert aux missions de conseil, collaborations R&D et opportunités de doctorat",
-  photo: placeholder("avatar", "/images/profil.jpg"),
+  photo: "/images/moi.jpg",
   links: {
     github: "https://github.com/Thekidmaroi",
     linkedin: "https://linkedin.com/in/marwane-houngnon",
