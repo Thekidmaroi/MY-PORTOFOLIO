@@ -23,11 +23,6 @@ const channels = [
     value: "github.com/Thekidmaroi",
     href: profile.links.github,
   },
-  {
-    label: "LinkedIn",
-    value: "linkedin.com/in/marwane-houngnon",
-    href: profile.links.linkedin,
-  },
 ];
 
 export default function ContactPage() {
@@ -49,32 +44,32 @@ export default function ContactPage() {
               </Card>
             </a>
           ))}
+
+          <Card className="flex h-full items-center justify-center py-6">
+            <Script src="https://platform.linkedin.com/badges/js/profile.js" strategy="lazyOnload" />
+            <div
+              className="badge-base LI-profile-badge"
+              data-locale="fr_FR"
+              data-size="large"
+              data-theme="dark"
+              data-type="HORIZONTAL"
+              data-vanity="marwane-houngnon"
+              data-version="v1"
+            >
+              <a
+                className="badge-base__link LI-simple-link"
+                href="https://www.linkedin.com/in/marwane-houngnon?trk=profile-badge"
+              >
+                Marwane Houngnon
+              </a>
+            </div>
+          </Card>
         </div>
 
         <Card className="mt-6">
           <p className="mono-label text-xs text-accent">Localisation</p>
           <p className="mt-2 font-medium">{profile.location}</p>
           <p className="mt-1 text-sm text-muted">{profile.availability}</p>
-        </Card>
-
-        <Card className="mt-6 flex justify-center py-8">
-          <Script src="https://platform.linkedin.com/badges/js/profile.js" strategy="lazyOnload" />
-          <div
-            className="badge-base LI-profile-badge"
-            data-locale="fr_FR"
-            data-size="large"
-            data-theme="dark"
-            data-type="HORIZONTAL"
-            data-vanity="marwane-houngnon"
-            data-version="v1"
-          >
-            <a
-              className="badge-base__link LI-simple-link"
-              href="https://www.linkedin.com/in/marwane-houngnon?trk=profile-badge"
-            >
-              Marwane Houngnon
-            </a>
-          </div>
         </Card>
       </Section>
     </>
