@@ -172,6 +172,7 @@ export type Project = {
   description: string;
   bullets: string[];
   metrics: { label: string; value: string }[];
+  photo?: string;
 };
 
 export const projects: Project[] = [
@@ -179,6 +180,7 @@ export const projects: Project[] = [
     name: "Industrial AI — Predictive Maintenance for Energy Systems",
     stack: ["Python", "Scikit-learn", "TensorFlow", "Streamlit", "Docker"],
     githubUrl: "https://github.com/Thekidmaroi/industrial-ai-predictive-maintenance",
+    photo: "/project-industrial-ai.svg",
     description:
       "Pipeline de bout en bout de détection d'anomalies et de prédiction de durée de vie résiduelle (RUL) sur données de séries temporelles SCADA industrielles (capteurs hydrauliques SKAB + moteurs turbofan NASA CMAPSS), pour le monitoring d'infrastructures énergétiques.",
     bullets: [
@@ -197,6 +199,7 @@ export const projects: Project[] = [
     name: "Election Chat — EDAN 2025",
     stack: ["GPT-4o-mini", "FAISS", "DuckDB", "RAG", "Streamlit"],
     githubUrl: "https://github.com/Thekidmaroi/election-chat",
+    photo: "/project-election-chat.svg",
     description:
       "Agent conversationnel d'IA sur les résultats officiels des élections de l'Assemblée nationale ivoirienne (27 décembre 2025), avec des données sourcées directement auprès de la Commission Électorale Indépendante (CEI).",
     bullets: [
