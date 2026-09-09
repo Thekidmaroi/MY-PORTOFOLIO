@@ -232,6 +232,14 @@ export const publications: Publication[] = [
     photo: "/CONF%20MARAKECH.JPG",
   },
   {
+    type: "Chapitre de livre",
+    citation:
+      "Bounnite, M. Y., & Houngnon, M. (2026). Markov-Optimized Resource Allocation for Sustainable 6G Mediterranean Smart Cities.",
+    venue: "Recent Trends in Smart Cities: Concepts, Technologies and Innovations, Springer Nature Switzerland — Tétouan, Maroc",
+    doi: "10.1007/978-3-032-28573-7_34",
+    photo: "/CONF%20TETOUAN.jpg",
+  },
+  {
     type: "Article de revue",
     citation:
       "Houngnon, M., & Bounnite, M. Y. Dynamic Fusion of Hidden Markov Models and Neural Networks for Adaptive Pattern Recognition in Multimodal Environments.",
