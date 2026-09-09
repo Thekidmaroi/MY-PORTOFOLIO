@@ -25,6 +25,7 @@ const groups = [
     title: "Contenus",
     links: [
       { href: "/conferences", label: "Conférences" },
+      { href: "/interventions", label: "Interventions" },
       { href: "/associations-et-startups", label: "Associations & Startups" },
       { href: "/contact", label: "Contact" },
     ],
