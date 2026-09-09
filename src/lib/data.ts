@@ -315,6 +315,13 @@ export const interventions: ConferencePaper[] = [
     status: "Intervenant",
     photos: ["/uscom.png"],
   },
+  {
+    citation:
+      "Intervention en tant que modérateur du panel de discussion puis consultant ateliers, lors de la première édition de « L'Aube de l'IA », conférence organisée par l'École Hestim — animation d'un atelier pratique de prompt engineering (bonnes pratiques de rédaction de prompts) auprès des étudiants participants, décembre 2025.",
+    location: "Casablanca, Maroc",
+    status: "Modérateur & consultant ateliers",
+    photos: ["/images/IMG_1502.jpeg", "/images/IMG_1606.jpg", "/images/baa21ea6-89d6-48fb-90e8-229fa41e1abb.JPG"],
+  },
 ];
 
 export type Education = {
@@ -453,16 +460,5 @@ export const involvements: Involvement[] = [
     description:
       "Collaboration entre Benin AI Community et l'Organisation Internationale pour les Migrations (OIM) Maroc : un webinaire de sensibilisation à l'intelligence artificielle suivi d'un hackathon durant lequel les équipes ont conçu des solutions IA (chatbots, réintégration personnalisée, suivi intelligent) pour améliorer l'accompagnement des migrants, dans le cadre du Programme de Protection, de Retour et de Réintégration des Migrants en Afrique du Nord (MPRR-NA). J'ai siégé au jury chargé d'évaluer les projets des équipes participantes.",
     tags: ["IA pour l'impact social", "Hackathon", "Jury", "Migration & réintégration"],
-  },
-  {
-    role: "Modérateur de panel puis consultant ateliers",
-    organization: "L'Aube de l'IA — École Hestim",
-    period: "Décembre 2025",
-    location: "Casablanca, Maroc",
-    photos: ["/images/IMG_1502.jpeg", "/images/IMG_1606.jpg", "/images/baa21ea6-89d6-48fb-90e8-229fa41e1abb.JPG"],
-    logo: placeholder("logo", "/images/logos/hestim.png"),
-    description:
-      "Invité à la première édition de la conférence « L'Aube de l'IA », organisée par l'École Hestim à Casablanca : d'abord comme modérateur du panel de discussion, puis sollicité comme consultant pour animer un atelier pratique de prompt engineering (bonnes pratiques de rédaction de prompts) auprès des étudiants participants.",
-    tags: ["Intelligence artificielle", "Prompt engineering", "Animation d'ateliers", "Modération de panel", "Vulgarisation"],
   },
 ];
