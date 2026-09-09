@@ -220,6 +220,7 @@ export type Publication = {
   status?: string;
   doi?: string;
   photo?: string;
+  photoPosition?: string;
 };
 
 export const publications: Publication[] = [
@@ -238,6 +239,7 @@ export const publications: Publication[] = [
     venue: "Recent Trends in Smart Cities: Concepts, Technologies and Innovations, Springer Nature Switzerland — Tétouan, Maroc",
     doi: "10.1007/978-3-032-28573-7_34",
     photo: "/CONF%20TETOUAN.jpg",
+    photoPosition: "50% 30%",
   },
   {
     type: "Article de revue",
@@ -266,7 +268,7 @@ export const conferencePapers: ConferencePaper[] = [
     citation:
       "Houngnon, M., & Bounnite, M. Y. Modeling Smart City Governance Transitions with HMM and Public IoT Data.",
     location: "Dakhla, Maroc",
-    photos: ["/CONF%20DAKHLA.JPG", "/d3d039ea-a4a2-4339-a39e-96c64da54689.JPG"],
+    photos: ["/CONF%20DAKHLA.JPG"],
   },
   {
     citation:
@@ -288,6 +290,16 @@ export const conferencePapers: ConferencePaper[] = [
   },
   {
     citation:
+      "Participation au ROADEM'25 — 2nd International Conference of the Moroccan Association of Operational Research and Decision Support (LOSIPE, ENSA El Jadida), sur le thème « Industry 4.0 Transformation: Towards Sustainable and Resilient Competitiveness ».",
+    location: "El Jadida, Maroc",
+    status: "Participant",
+    photos: ["/IMG_1321.jpeg"],
+  },
+];
+
+export const interventions: ConferencePaper[] = [
+  {
+    citation:
       "Intervention en tant que formateur pour la communauté IKHONO — « Sortir de la consommation algorithmique : penser et créer avec l'IA », webinaire en ligne, 20 janvier 2026.",
     location: "En ligne — Bénin",
     status: "Formateur",
@@ -299,13 +311,6 @@ export const conferencePapers: ConferencePaper[] = [
     location: "En ligne — Casablanca, Maroc",
     status: "Intervenant",
     photos: ["/uscom.png"],
-  },
-  {
-    citation:
-      "Participation au ROADEM'25 — 2nd International Conference of the Moroccan Association of Operational Research and Decision Support (LOSIPE, ENSA El Jadida), sur le thème « Industry 4.0 Transformation: Towards Sustainable and Resilient Competitiveness ».",
-    location: "El Jadida, Maroc",
-    status: "Participant",
-    photos: ["/IMG_1321.jpeg"],
   },
 ];
 
