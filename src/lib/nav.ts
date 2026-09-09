@@ -6,6 +6,7 @@ export const navLinks = [
   { href: "/competences", label: "Compétences" },
   { href: "/publications", label: "Publications" },
   { href: "/conferences", label: "Conférences" },
+  { href: "/interventions", label: "Interventions" },
   { href: "/formations", label: "Formations" },
   { href: "/associations-et-startups", label: "Associations & Startups" },
   { href: "/contact", label: "Contact" },
