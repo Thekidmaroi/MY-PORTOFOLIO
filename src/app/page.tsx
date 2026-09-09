@@ -9,7 +9,7 @@ import { DimensionCard } from "@/components/dimension-card";
 import { profile, experiences, projects, publications, skills, pillars } from "@/lib/data";
 
 const stats = [
-  { label: "Projets d'IA appliquée", value: "2+" },
+  { label: "Projets d'IA appliquée", value: "10+" },
   { label: "Publications indexées", value: "2" },
   { label: "Communications scientifiques", value: "3" },
   { label: "Tests unitaires en production", value: "12/12" },
