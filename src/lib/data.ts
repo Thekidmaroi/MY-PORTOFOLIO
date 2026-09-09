@@ -459,7 +459,7 @@ export const involvements: Involvement[] = [
     organization: "L'Aube de l'IA — École Hestim",
     period: "Décembre 2025",
     location: "Casablanca, Maroc",
-    photos: ["/L'AUBE%20DE%20L'IA.jpeg", "/L'AUBE%20DE%20L'IA.jpg", "/L'AUBE%20DE%20L'IA%20(2).JPG"],
+    photos: ["/images/IMG_1502.jpeg", "/images/IMG_1606.jpg", "/images/baa21ea6-89d6-48fb-90e8-229fa41e1abb.JPG"],
     logo: placeholder("logo", "/images/logos/hestim.png"),
     description:
       "Invité à la première édition de la conférence « L'Aube de l'IA », organisée par l'École Hestim à Casablanca : d'abord comme modérateur du panel de discussion, puis sollicité comme consultant pour animer un atelier pratique de prompt engineering (bonnes pratiques de rédaction de prompts) auprès des étudiants participants.",
