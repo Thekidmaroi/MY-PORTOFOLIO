@@ -3,6 +3,7 @@ import { PageHeader } from "@/components/page-header";
 import { Section } from "@/components/section";
 import { Card } from "@/components/card";
 import { Badge } from "@/components/badge";
+import { MediaSlot } from "@/components/media-slot";
 import { projects } from "@/lib/data";
 
 export const metadata: Metadata = { title: "Projets" };
@@ -22,6 +23,15 @@ export default function ProjectsPage() {
             const hasLink = !project.githubUrl.startsWith("#TODO");
             return (
               <Card key={project.name}>
+                {project.photo && (
+                  <MediaSlot
+                    src={project.photo}
+                    alt={`Illustration — ${project.name}`}
+                    variant="cover"
+                    className="mb-5 aspect-[4/3] w-full"
+                    sizes="(min-width: 1024px) 800px, 100vw"
+                  />
+                )}
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <h3 className="text-xl font-semibold">{project.name}</h3>
                   {hasLink ? (
