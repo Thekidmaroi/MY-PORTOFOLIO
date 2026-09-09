@@ -26,6 +26,7 @@ export default function PublicationsPage() {
                   alt={`Photo — ${pub.venue}`}
                   variant="cover"
                                     className="mb-5 aspect-[4/3] w-full"
+                  objectPosition={pub.photoPosition}
                 />
               )}
               <div className="flex flex-wrap items-center justify-between gap-2">
