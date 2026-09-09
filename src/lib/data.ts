@@ -457,12 +457,12 @@ export const involvements: Involvement[] = [
   {
     role: "Modérateur de panel puis consultant ateliers",
     organization: "L'Aube de l'IA — École Hestim",
-    period: "2025",
-    location: "Maroc",
-    photos: ["/L'AUBE%20DE%20L'IA.jpeg", "/L'AUBE%20DE%20L'IA.jpg"],
+    period: "Décembre 2025",
+    location: "Casablanca, Maroc",
+    photos: ["/L'AUBE%20DE%20L'IA.jpeg", "/L'AUBE%20DE%20L'IA.jpg", "/L'AUBE%20DE%20L'IA%20(2).JPG"],
     logo: placeholder("logo", "/images/logos/hestim.png"),
     description:
-      "Invité à la conférence « L'Aube de l'IA », organisée par l'École Hestim : d'abord comme modérateur du panel de discussion, puis sollicité comme consultant pour animer des ateliers pratiques autour de l'intelligence artificielle auprès des participants.",
-    tags: ["Intelligence artificielle", "Animation d'ateliers", "Modération de panel", "Vulgarisation"],
+      "Invité à la première édition de la conférence « L'Aube de l'IA », organisée par l'École Hestim à Casablanca : d'abord comme modérateur du panel de discussion, puis sollicité comme consultant pour animer un atelier pratique de prompt engineering (bonnes pratiques de rédaction de prompts) auprès des étudiants participants.",
+    tags: ["Intelligence artificielle", "Prompt engineering", "Animation d'ateliers", "Modération de panel", "Vulgarisation"],
   },
 ];
