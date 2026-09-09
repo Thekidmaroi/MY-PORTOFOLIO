@@ -5,6 +5,14 @@ import { Card } from "@/components/card";
 import { MediaSlot } from "@/components/media-slot";
 import { conferencePapers } from "@/lib/data";
 
+// Certaines photos (captures d'écran ou cadrages serrés) ont le sujet
+// coupé au niveau de la tête avec le recadrage par défaut (centré) —
+// on force ici le point de focus vertical pour ces photos précises.
+const PHOTO_FOCUS: Record<string, string> = {
+  "/CONF%20TETOUAN.jpg": "50% 30%",
+  "/CONF%20TETOUAN.PNG": "50% 30%",
+};
+
 export const metadata: Metadata = { title: "Conférences" };
 
 export default function ConferencesPage() {
@@ -32,6 +40,7 @@ export default function ConferencesPage() {
                     alt={`Photo — ${paper.location}`}
                     variant="cover"
                     className="aspect-[4/3] w-full"
+                    objectPosition={PHOTO_FOCUS[photo]}
                     sizes={
                       paper.photos.length > 1
                         ? "(min-width: 640px) 420px, 100vw"
