@@ -214,6 +214,25 @@ export const projects: Project[] = [
       { label: "Circonscriptions", value: "186" },
     ],
   },
+  {
+    name: "Actuarial Pricing Benchmark — GLM, GBM & CANN",
+    stack: ["Python", "Scikit-learn", "LightGBM", "PyTorch", "Streamlit"],
+    githubUrl: "https://github.com/Thekidmaroi/insurance-pricing-cann",
+    photo: "/project-insurance-pricing.svg",
+    description:
+      "Pipeline actuariel de tarification fréquence/sévérité de bout en bout sur le French Motor Third-Party Liability (freMTPL2 : 678 013 polices, 26 639 sinistres), le benchmark académique et industriel de référence pour la tarification automobile — évalué avec les métriques qu'utilisent réellement les actuaires (déviance Poisson/Gamma, indice de Gini normalisé, courbe de Lorenz), pas l'accuracy.",
+    bullets: [
+      "Quatre modèles comparés à armes égales : GLM Poisson/Gamma (baseline actuarielle), LightGBM (objectifs Poisson/Gamma natifs), FFNN à embeddings d'entités, et un CANN (Combined Actuarial Neural Network, Wüthrich & Richman) dont la tête de correction neuronale est initialisée à zéro et ajoutée en résidu sur le prédicteur linéaire du GLM.",
+      "Résultats sur le jeu de test : Gini 0.366 (LightGBM) vs 0.242 (GLM) vs 0.259 (CANN) — le CANN améliore le GLM sur toutes les métriques par construction (déviance Poisson 0.305 vs 0.312) tout en restant auditable comme « GLM + correction bornée », contrairement à un FFNN classique qui, lui, fait moins bien que le GLM (Gini 0.198).",
+      "Application Streamlit pensée pour des utilisateurs non-techniques : simulateur de devis avec estimation de prix en direct, comparaison visuelle des 4 modèles, explication en langage clair de chaque facteur de risque (« pourquoi ce prix ? »), thème clair et sobre inspiré d'un vrai comparateur d'assurance en ligne.",
+      "Pipeline reproductible : split chronologique stratifié, suite de métriques dédiées (déviance Poisson/Gamma, Gini normalisé via courbe de Lorenz, calibration par décile), statistiques de référence précalculées pour un déploiement cloud sans les données brutes.",
+    ],
+    metrics: [
+      { label: "Gini (LightGBM, test)", value: "0.366" },
+      { label: "Polices freMTPL2", value: "678 013" },
+      { label: "Amélioration CANN vs GLM", value: "+7 % Gini" },
+    ],
+  },
 ];
 
 export type Publication = {
