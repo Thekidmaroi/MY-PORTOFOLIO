@@ -233,6 +233,25 @@ export const projects: Project[] = [
       { label: "Amélioration CANN vs GLM", value: "+7 % Gini" },
     ],
   },
+  {
+    name: "Fraud Detective — Graph AI for Bitcoin AML",
+    stack: ["Python", "PyTorch Geometric", "GCN/GraphSAGE/GAT", "XGBoost", "Streamlit"],
+    githubUrl: "https://github.com/Thekidmaroi/graph-fraud-detection",
+    photo: "/project-fraud-detective.svg",
+    description:
+      "Détection de blanchiment d'argent sur le benchmark Elliptic (203 769 transactions Bitcoin anonymisées, 234 355 arêtes de flux monétaire, 49 pas de temps) : un Graph Neural Network apprend qu'une transaction frauduleuse se reconnaît aussi à qui elle parle, pas seulement à ses propres montants — comparé tête-à-tête à une baseline XGBoost qui, elle, ignore le graphe.",
+    bullets: [
+      "Split strictement chronologique (train : pas 1–34, val : 35–39, test : 40–49) plutôt qu'aléatoire — un split aléatoire fuite la topologie et les motifs de fraude futurs dans l'entraînement, un biais classique et rarement corrigé dans ce type de benchmark. Métriques rapportées : Illicit-F1 et PR-AUC, jamais l'accuracy (les transactions illicites ne représentent que ~10 % des nœuds labellisés).",
+      "Module « Train on Your Data » : n'importe quelle organisation peut uploader ses propres tables nœuds/arêtes (schéma de colonnes arbitraire, encodage one-hot automatique des variables catégorielles) et entraîner le même GCN en direct dans le navigateur, sans code ni GPU — testé de bout en bout sur un jeu de données synthétique à schéma complètement différent du jeu de démonstration.",
+      "Couche d'explicabilité par ablation d'arêtes (dans l'esprit de GNNExplainer, Ying et al. 2019) : identifie quels voisins du graphe ont fait bouger le score, puis génère deux lectures en langage clair à partir des mêmes chiffres — une pour l'équipe d'investigation, une pour le titulaire du compte, formulée comme un signal provisoire et non une accusation.",
+      "Application Streamlit avec narration « détective » pour un public non technique : visualisation interactive du sous-graphe, verdict en langage clair, et un panneau technique détaillé pour qui veut les vrais noms de métriques et les références d'architecture.",
+    ],
+    metrics: [
+      { label: "Transactions Elliptic", value: "203 769" },
+      { label: "Architectures comparées", value: "4" },
+      { label: "Split", value: "chronologique" },
+    ],
+  },
 ];
 
 export type Publication = {
