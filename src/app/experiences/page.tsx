@@ -1,13 +1,16 @@
-import type { Metadata } from "next";
+"use client";
+import {useLanguage} from "@/components/language-provider";
+import {EnglishPage} from "@/components/english-pages";
 import { PageHeader } from "@/components/page-header";
 import { Section } from "@/components/section";
 import { MediaSlot } from "@/components/media-slot";
 import { experiences } from "@/lib/data";
 
-export const metadata: Metadata = { title: "Expériences" };
 
 export default function ExperiencesPage() {
-  return (
+ const {language}=useLanguage();
+ if(language==="en") return <EnglishPage route="experiences" />;
+ return (
     <>
       <PageHeader
         kicker="Parcours professionnel"
