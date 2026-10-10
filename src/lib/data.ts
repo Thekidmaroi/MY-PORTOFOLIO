@@ -177,6 +177,40 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    name: "SwahiliLand — Reconnaissance d'entités nommées en swahili",
+    stack: ["XLM-RoBERTa", "Transformers", "FastAPI", "Next.js", "TypeScript", "Railway", "Vercel"],
+    githubUrl: "https://github.com/Thekidmaroi/SwahiliLand",
+    description:
+      "Application NLP full-stack pour identifier et visualiser les personnes, lieux et organisations dans des phrases en swahili, à partir d'un modèle XLM-RoBERTa spécialisé.",
+    bullets: [
+      "Interface Next.js interactive avec surlignage des entités, scores de confiance, exemples de phrases et mesure de la latence des requêtes.",
+      "API d'inférence Python FastAPI déployée sur Railway, reliée à un proxy Next.js sur Vercel avec validation des entrées et authentification côté serveur.",
+      "Tests automatisés et intégration continue via GitHub Actions ; démonstration publique : https://swahililand-steel.vercel.app.",
+    ],
+    metrics: [
+      { label: "Démo", value: "En ligne" },
+      { label: "Architecture", value: "Full-stack" },
+      { label: "CI", value: "GitHub Actions" },
+    ],
+  },
+  {
+    name: "AfriTune — Reconnaissance d'entités nommées en fon",
+    stack: ["Python", "XLM-RoBERTa", "Hugging Face Transformers", "PyTorch", "MasakhaNER 2.0"],
+    githubUrl: "https://github.com/Thekidmaroi/AfriTune",
+    description:
+      "Projet de recherche NLP sur une langue africaine sous-représentée : adaptation de XLM-RoBERTa à la reconnaissance d'entités nommées en fon, avec protocole d'évaluation documenté.",
+    bullets: [
+      "Fine-tuning de XLM-RoBERTa Base sur la portion fon de MasakhaNER 2.0, avec étiquetage BIO pour les catégories DATE, LOC, ORG et PER.",
+      "Évaluation distincte sur validation et test tenu à l'écart : F1 entité de 79,13 % sur le test, issu d'une seule exécution d'entraînement (seed 42).",
+      "Notebook public, rapport scientifique, figures expérimentales et guide de reproductibilité ; réplication complète sur un nouvel environnement GPU encore à vérifier.",
+    ],
+    metrics: [
+      { label: "F1 test (une exécution)", value: "79,13 %" },
+      { label: "Phrases de test", value: "1 228" },
+      { label: "Types d'entités", value: "4" },
+    ],
+  },
+  {
     name: "Industrial AI — Predictive Maintenance for Energy Systems",
     stack: ["Python", "Scikit-learn", "TensorFlow", "Streamlit", "Docker"],
     githubUrl: "https://github.com/Thekidmaroi/industrial-ai-predictive-maintenance",
