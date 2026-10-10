@@ -1,4 +1,6 @@
+"use client";
 import Link from "next/link";
+import { useLanguage } from "./language-provider";
 import { profile } from "@/lib/data";
 import { Container } from "./container";
 import { Badge } from "./badge";
@@ -33,6 +35,9 @@ const groups = [
 ];
 
 export function Footer() {
+  const {language}=useLanguage();
+  const tr=(fr:string,en:string)=>language==="fr"?fr:en;
+  const labels:Record<string,string>={"Profil":"Profile","Travaux":"Work","Contenus":"Content","À propos":"About","Compétences":"Skills","Formations":"Education","Expériences":"Experience","Projets":"Projects","Publications":"Publications","Conférences":"Conferences","Interventions":"Talks","Associations & Startups":"Community & Startups"};
   return (
     <footer className="mt-auto border-t border-border">
       <Container className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
@@ -43,13 +48,13 @@ export function Footer() {
         </div>
 
         {groups.map((group) => (
-          <div key={group.title}>
+          <div key={language==="fr"?group.title:labels[group.title]||group.title}>
             <p className="mono-label mb-4 text-xs font-medium text-muted">{group.title}</p>
             <ul className="space-y-2.5 text-sm">
               {group.links.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-muted transition-colors hover:text-foreground">
-                    {link.label}
+                    {language==="fr"?link.label:labels[link.label]||link.label}
                   </Link>
                 </li>
               ))}
@@ -60,11 +65,11 @@ export function Footer() {
 
       <Container className="flex flex-col gap-4 border-t border-border py-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
         <p>
-          © {new Date().getFullYear()} {profile.name}. Tous droits réservés.
+          © {new Date().getFullYear()} {profile.name}. {tr("Tous droits réservés.","All rights reserved.")}
         </p>
         <div className="flex flex-wrap gap-2">
           <Badge tone="cyan">{profile.location.toUpperCase()}</Badge>
-          <Badge tone="purple">IA · RECHERCHE · PRODUCTION</Badge>
+          <Badge tone="purple">{tr("IA · RECHERCHE · PRODUCTION","AI · RESEARCH · PRODUCTION")}</Badge>
         </div>
       </Container>
     </footer>
