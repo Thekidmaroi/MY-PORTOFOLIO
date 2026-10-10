@@ -14,21 +14,21 @@ export default function ProjectsPage() {
       <PageHeader
         kicker="Réalisations"
         title="Projets"
-        description="Pipelines IA de bout en bout, de la donnée brute au dashboard de production."
+        description="Applications déployées, recherche NLP et systèmes de machine learning : découvrez les réalisations, les technologies et les résultats vérifiables."
       />
 
       <Section>
-        <div className="space-y-8">
+        <div className="grid gap-7 lg:grid-cols-2">
           {projects.map((project) => {
             const hasLink = !project.githubUrl.startsWith("#TODO");
             return (
-              <Card key={project.name}>
+              <Card key={project.name} className="flex h-full flex-col">
                 {project.photo && (
                   <MediaSlot
                     src={project.photo}
                     alt={`Illustration — ${project.name}`}
                     variant="cover"
-                    className="mb-5 aspect-[4/3] w-full"
+                    className="mb-5 aspect-[16/9] w-full"
                     sizes="(min-width: 1024px) 800px, 100vw"
                   />
                 )}
@@ -65,7 +65,7 @@ export default function ProjectsPage() {
                   ))}
                 </ul>
 
-                <div className="mt-6 grid grid-cols-3 gap-4 border-t border-border pt-6">
+                <div className="mt-auto grid grid-cols-3 gap-3 border-t border-border pt-6">
                   {project.metrics.map((metric) => (
                     <div key={metric.label}>
                       <p className="text-lg font-semibold text-accent sm:text-xl">{metric.value}</p>
