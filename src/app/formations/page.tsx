@@ -1,14 +1,17 @@
-import type { Metadata } from "next";
+"use client";
+import {useLanguage} from "@/components/language-provider";
+import {EnglishPage} from "@/components/english-pages";
 import { PageHeader } from "@/components/page-header";
 import { Section } from "@/components/section";
 import { Card } from "@/components/card";
 import { MediaSlot } from "@/components/media-slot";
 import { education, certifications } from "@/lib/data";
 
-export const metadata: Metadata = { title: "Formations" };
 
 export default function EducationPage() {
-  return (
+ const {language}=useLanguage();
+ if(language==="en") return <EnglishPage route="formations" />;
+ return (
     <>
       <PageHeader
         kicker="Parcours académique"
