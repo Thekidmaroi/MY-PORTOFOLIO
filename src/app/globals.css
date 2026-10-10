@@ -228,3 +228,15 @@ body {
     animation: none;
   }
 }
+
+/* Portfolio visual refresh: refined surfaces, accessible focus and reduced motion */
+html { scroll-behavior: smooth; }
+body { background-image: radial-gradient(ellipse at 80% 0%, color-mix(in srgb, var(--accent) 5%, transparent), transparent 42%); }
+::selection { background: color-mix(in srgb, var(--accent) 28%, transparent); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.gradient-btn { box-shadow: 0 8px 30px color-mix(in srgb, var(--accent) 15%, transparent); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-fade-up { animation: none; }
+  .gradient-btn, .gradient-btn:hover { transform: none; transition: none; }
+}
