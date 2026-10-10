@@ -169,6 +169,7 @@ export type Project = {
   period?: string;
   stack: string[];
   githubUrl: string;
+  demoUrl?: string;
   description: string;
   bullets: string[];
   metrics: { label: string; value: string }[];
@@ -180,6 +181,7 @@ export const projects: Project[] = [
     name: "SwahiliLand — Reconnaissance d'entités nommées en swahili",
     stack: ["XLM-RoBERTa", "Transformers", "FastAPI", "Next.js", "TypeScript", "Railway", "Vercel"],
     githubUrl: "https://github.com/Thekidmaroi/SwahiliLand",
+    demoUrl: "https://swahililand-steel.vercel.app",
     description:
       "Application NLP full-stack pour identifier et visualiser les personnes, lieux et organisations dans des phrases en swahili, à partir d'un modèle XLM-RoBERTa spécialisé.",
     bullets: [
