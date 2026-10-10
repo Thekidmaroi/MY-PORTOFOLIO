@@ -1,84 +1,11 @@
 import type { Metadata } from "next";
-import { PageHeader } from "@/components/page-header";
-import { Section } from "@/components/section";
-import { Card } from "@/components/card";
-import { Badge } from "@/components/badge";
-import { MediaSlot } from "@/components/media-slot";
+import Link from "next/link";
+import { Container } from "@/components/container";
 import { projects } from "@/lib/data";
-
-export const metadata: Metadata = { title: "Projets" };
-
+export const metadata: Metadata = { title: "Projets — IA, NLP et recherche" };
 export default function ProjectsPage() {
-  return (
-    <>
-      <PageHeader
-        kicker="Réalisations"
-        title="Projets"
-        description="Applications déployées, recherche NLP et systèmes de machine learning : découvrez les réalisations, les technologies et les résultats vérifiables."
-      />
-
-      <Section>
-        <div className="grid gap-7 lg:grid-cols-2">
-          {projects.map((project) => {
-            const hasLink = !project.githubUrl.startsWith("#TODO");
-            return (
-              <Card key={project.name} className="flex h-full flex-col">
-                {project.photo && (
-                  <MediaSlot
-                    src={project.photo}
-                    alt={`Illustration — ${project.name}`}
-                    variant="cover"
-                    className="mb-5 aspect-[16/9] w-full"
-                    sizes="(min-width: 1024px) 800px, 100vw"
-                  />
-                )}
-                <div className="flex flex-wrap items-start justify-between gap-4">
-                  <h3 className="text-xl font-semibold">{project.name}</h3>
-                  {hasLink ? (
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mono-label shrink-0 text-xs font-medium text-accent hover:underline"
-                    >
-                      Voir sur GitHub →
-                    </a>
-                  ) : (
-                    <span className="mono-label shrink-0 text-xs text-muted">Repo bientôt public</span>
-                  )}
-                </div>
-
-                {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="mb-2 inline-flex rounded-full bg-accent px-4 py-2 text-sm font-semibold text-accent-contrast transition hover:opacity-90">Tester la démo ↗</a>}
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {project.stack.map((tech) => (
-                    <Badge key={tech}>{tech}</Badge>
-                  ))}
-                </div>
-
-                <p className="mt-5 text-sm leading-relaxed text-muted">{project.description}</p>
-
-                <ul className="mt-5 space-y-2">
-                  {project.bullets.map((bullet, i) => (
-                    <li key={i} className="flex gap-3 text-sm leading-relaxed text-muted">
-                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-muted" />
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-auto grid grid-cols-3 gap-3 border-t border-border pt-6">
-                  {project.metrics.map((metric) => (
-                    <div key={metric.label}>
-                      <p className="text-lg font-semibold text-accent sm:text-xl">{metric.value}</p>
-                      <p className="mt-1 text-xs text-muted">{metric.label}</p>
-                    </div>
-                  ))}
-                </div>
-              </Card>
-            );
-          })}
-        </div>
-      </Section>
-    </>
-  );
+ return <main className="editorial">
+  <section className="border-b border-border py-20 sm:py-28"><Container><p className="eyebrow mb-6">PORTFOLIO / PROJECT ARCHIVE</p><h1 className="display-title max-w-4xl">Proof of <em>work.</em></h1><p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted">Des projets d'intelligence artificielle documentés : méthodes, résultats, limites, code source et démonstrations quand elles existent.</p><p className="mt-7 text-xs font-semibold uppercase tracking-widest text-accent">{projects.length} PROJETS · NLP / ML / RESEARCH / DEPLOYMENT</p></Container></section>
+  <section className="py-16 sm:py-24"><Container><div className="grid gap-6 lg:grid-cols-2">{projects.map((p,i)=><article key={p.name} className="project-editorial flex flex-col overflow-hidden rounded-[1.75rem] border border-border bg-surface"><div className={`project-art project-art-${i%4} relative flex min-h-48 flex-col justify-between overflow-hidden p-8`}><div className="relative z-10 flex justify-between"><span className="eyebrow !text-white/75">CASE STUDY / {String(i+1).padStart(2,"0")}</span><span className="text-white/70">↗</span></div><h2 className="relative z-10 max-w-lg text-2xl font-semibold tracking-tight text-white">{p.name}</h2><div className="project-orb" aria-hidden="true"/></div><div className="flex flex-1 flex-col p-8"><p className="text-sm leading-relaxed text-muted">{p.description}</p><div className="mt-6 flex flex-wrap gap-2">{p.stack.slice(0,5).map(s=><span key={s} className="rounded-full border border-border px-3 py-1 text-xs text-muted">{s}</span>)}</div><div className="mt-7 grid grid-cols-3 gap-3 border-t border-border pt-6">{p.metrics.slice(0,3).map(m=><div key={m.label}><p className="text-lg font-semibold text-accent">{m.value}</p><p className="mt-1 text-xs text-muted">{m.label}</p></div>)}</div><details className="mt-7 rounded-xl bg-surface-2 p-4"><summary className="cursor-pointer text-sm font-semibold">Approche et résultats détaillés</summary><ul className="mt-4 list-disc space-y-3 pl-5 text-sm leading-relaxed text-muted">{p.bullets.map((b,j)=><li key={j}>{b}</li>)}</ul></details><div className="mt-auto flex flex-wrap gap-3 pt-7"><a href={p.githubUrl} target="_blank" rel="noopener noreferrer" className="editorial-button">Explorer le code ↗</a>{p.demoUrl && <a href={p.demoUrl} target="_blank" rel="noopener noreferrer" className="editorial-button-secondary">Tester la démo ↗</a>}</div></div></article>)}</div><div className="mt-16 text-center"><p className="text-muted">Vous souhaitez discuter d'un projet ou d'une collaboration ?</p><Link href="/contact" className="mt-5 inline-flex rounded-full border border-accent px-6 py-3 text-sm font-semibold text-accent hover:bg-accent/10">Me contacter ↗</Link></div></Container></section>
+ </main>;
 }

@@ -1,171 +1,111 @@
 import Link from "next/link";
 import { Container } from "@/components/container";
-import { Section } from "@/components/section";
-import { Card } from "@/components/card";
-import { Badge } from "@/components/badge";
-import { HeroBackdrop } from "@/components/hero-backdrop";
-import { SocialLinks } from "@/components/social-links";
 import { MediaSlot } from "@/components/media-slot";
-import { DimensionCard } from "@/components/dimension-card";
-import { profile, experiences, projects, publications, skills, pillars } from "@/lib/data";
+import { profile, projects, experiences, publications, skills } from "@/lib/data";
 
-const stats = [
-  { label: "Projets d'IA appliquée", value: "10+" },
-  { label: "Publications indexées", value: "2" },
-  { label: "Communications scientifiques", value: "3" },
-  { label: "Tests unitaires en production", value: "12/12" },
+const feature = projects.slice(0, 6);
+const domains = [
+  { number: "01", title: "Applied AI & Machine Learning", text: "Modéliser, expérimenter et déployer des systèmes qui répondent à des contraintes réelles.", tags: "Time series · Predictive maintenance · MLOps" },
+  { number: "02", title: "Natural Language Processing", text: "Faire passer les modèles de langue du notebook à des expériences accessibles et utilisables.", tags: "Transformers · NER · African NLP" },
+  { number: "03", title: "Research & Probabilistic Systems", text: "Relier méthodes probabilistes, validation scientifique et ingénierie reproductible.", tags: "Markov models · Hybrid AI · Publications" },
 ];
+
+function Arrow({ diagonal = false }: { diagonal?: boolean }) {
+  return <span aria-hidden="true">{diagonal ? "↗" : "→"}</span>;
+}
 
 export default function Home() {
   return (
-    <>
-      <section className="relative overflow-hidden border-b border-border py-20 sm:py-28 lg:py-32">
-        <HeroBackdrop />
-        <Container className="relative">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.4fr_0.6fr]">
-          <div className="animate-fade-up max-w-3xl">
-            <div className="mb-5 flex flex-wrap gap-2">
-              <Badge tone="cyan">{profile.title.toUpperCase()}</Badge>
-              <Badge tone="purple">RECHERCHE APPLIQUÉE</Badge>
-              <Badge tone="pink">CO-FONDATEUR BAIC</Badge>
+    <div className="editorial">
+      <section className="relative overflow-hidden border-b border-border">
+        <Container className="relative grid min-h-[680px] items-center gap-12 py-20 lg:grid-cols-[1.15fr_.85fr] lg:py-28">
+          <div className="relative z-10">
+            <p className="eyebrow mb-8"><span className="signal-dot" /> AVAILABLE FOR RESEARCH & COLLABORATION <span className="text-muted">/ CASABLANCA</span></p>
+            <h1 className="display-title max-w-[860px]">Building AI<br />that goes <em>beyond</em><br />the lab<span className="text-accent">.</span></h1>
+            <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted sm:text-xl">Je suis <strong className="text-foreground">{profile.name}</strong>, ingénieur et chercheur en intelligence artificielle. J’explore, je construis et je déploie des systèmes d’IA — du NLP pour les langues africaines aux modèles prédictifs industriels.</p>
+            <div className="mt-9 flex flex-wrap items-center gap-3">
+              <Link href="/projets" className="editorial-button">Découvrir mon travail <Arrow diagonal /></Link>
+              <Link href="/contact" className="editorial-button-secondary">Parlons d’un projet <Arrow /></Link>
             </div>
-            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-              Je transforme la <span className="gradient-text">recherche IA</span> en solutions concrètes.
-            </h1>
-            <p className="mt-5 text-sm font-medium text-accent">{profile.name} · AI Research Engineer & Applied ML Engineer</p>
-            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-muted">{profile.tagline}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href="/projets"
-                className="gradient-btn rounded-full px-5 py-2.5 text-sm font-semibold"
-              >
-                Explorer mes projets
-              </Link>
-              <Link
-                href="/publications"
-                className="rounded-full border border-border bg-surface/80 px-5 py-2.5 text-sm font-medium transition-colors hover:border-accent/50 hover:bg-surface-2"
-              >
-                Mes publications
-              </Link>
+            <div className="mt-12 flex flex-wrap items-center gap-5 text-xs font-medium uppercase tracking-[.12em] text-muted">
+              <span>AI / ML ENGINEERING</span><span className="text-accent">✳</span><span>RESEARCH</span><span className="text-accent">✳</span><span>OPEN SOURCE</span>
             </div>
-            <p className="mt-6 text-sm text-muted">
-              {profile.location} · {profile.availability}
-            </p>
-            <SocialLinks className="mt-6" />
           </div>
-          <div className="relative mx-auto w-full max-w-sm lg:max-w-none">
-            <div className="absolute -inset-5 rounded-[2.5rem] bg-gradient-to-br from-accent/20 via-accent-2/10 to-transparent blur-3xl" aria-hidden="true" />
-            <MediaSlot src={profile.photo} alt={`Portrait de ${profile.name}`} variant="cover" className="aspect-[4/5] w-full rounded-[2rem] shadow-2xl" sizes="(min-width: 1024px) 360px, 80vw" />
-          </div>
+          <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+            <div className="absolute -inset-8 rounded-full bg-accent/10 blur-[80px]" aria-hidden="true" />
+            <div className="relative overflow-hidden rounded-[2rem] border border-border bg-surface shadow-2xl">
+              <MediaSlot src={profile.photo} alt={`Portrait de ${profile.name}`} variant="cover" className="aspect-[4/5] w-full !rounded-none !border-0" sizes="(min-width: 1024px) 480px, 90vw" objectPosition="50% 18%" />
+              <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/20 bg-black/65 p-4 text-white backdrop-blur-xl">
+                <div className="flex items-center justify-between gap-3"><span className="text-sm font-semibold">Marwane Houngnon</span><span className="text-xs text-white/70">AI Research Engineer</span></div>
+              </div>
+            </div>
+            <span className="absolute -right-5 top-12 hidden rounded-full border border-accent/30 bg-background px-5 py-3 text-xs font-semibold uppercase tracking-widest text-accent shadow-xl sm:block">Research ↗ Production</span>
           </div>
         </Container>
       </section>
 
-      <Section>
-        <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
-          {stats.map((stat) => (
-            <div key={stat.label}>
-              <p className="text-2xl font-semibold sm:text-3xl">{stat.value}</p>
-              <p className="mt-1 text-sm text-muted">{stat.label}</p>
-            </div>
+      <div className="border-b border-border bg-surface/40">
+        <Container className="grid grid-cols-2 gap-8 py-8 md:grid-cols-4">
+          {[["10+", "Projets IA appliquée"],["2", "Publications indexées"],["3", "Communications scientifiques"],["12/12", "Tests du projet Industrial AI"]].map(([value,label]) => (
+            <div key={label} className="border-l-2 border-accent/40 pl-4"><p className="text-3xl font-semibold tracking-tight">{value}</p><p className="mt-1 text-xs text-muted">{label}</p></div>
           ))}
-        </div>
-      </Section>
+        </Container>
+      </div>
 
-      <Section
-        eyebrow="Résumé"
-        title="De la recherche à l'IA appliquée, en production"
-        description="Recherche appliquée, modèles de machine learning et systèmes déployés : une approche qui relie rigueur scientifique et impact concret."
-      />
-
-      <Section eyebrow="Mes 3 dimensions" title="Ce que je fais">
-        <div className="grid gap-6 sm:grid-cols-3">
-          {pillars.map((pillar) => (
-            <DimensionCard key={pillar.title} {...pillar} />
-          ))}
-        </div>
-      </Section>
-
-      <Section eyebrow="Projets" title="Projets phares">
-        <div className="grid gap-6 sm:grid-cols-2">
-          {projects.slice(0, 4).map((project) => (
-            <Card key={project.name} className="group flex h-full flex-col overflow-hidden">
-              {project.photo && <MediaSlot src={project.photo} alt={`Aperçu du projet ${project.name}`} variant="cover" className="mb-5 aspect-[16/9] w-full" sizes="(min-width: 640px) 460px, 100vw" />}
-              <h3 className="text-lg font-semibold">{project.name}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted">{project.description}</p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {project.stack.slice(0, 4).map((tech) => (
-                  <Badge key={tech}>{tech}</Badge>
-                ))}
-              </div>
-              <div className="mt-auto flex flex-wrap gap-2 pt-6"><a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="inline-flex rounded-full border border-accent/40 px-4 py-2 text-sm font-semibold text-accent transition hover:bg-accent/10">Code GitHub ↗</a>{project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="gradient-btn inline-flex rounded-full px-4 py-2 text-sm font-semibold">Voir la démo ↗</a>}</div>
-            </Card>
-          ))}
-        </div>
-        <Link href="/projets" className="mt-8 inline-block text-sm font-medium text-accent hover:underline">
-          Tous les projets →
-        </Link>
-      </Section>
-
-      <Section eyebrow="Parcours" title="Expérience récente">
-        <div className="space-y-6">
-          {experiences.slice(0, 2).map((exp) => (
-            <Card key={exp.role + exp.company}>
-              <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 className="font-semibold">{exp.role}</h3>
-                <span className="text-xs text-muted">{exp.period}</span>
-              </div>
-              <p className="mt-1 text-sm text-accent">{exp.company}</p>
-              <p className="mt-3 text-sm leading-relaxed text-muted">{exp.bullets[0]}</p>
-            </Card>
-          ))}
-        </div>
-        <Link href="/experiences" className="mt-8 inline-block text-sm font-medium text-accent hover:underline">
-          Tout le parcours →
-        </Link>
-      </Section>
-
-      <Section eyebrow="Recherche" title="Dernière publication">
-        <Card>
-          <p className="mono-label text-xs text-accent">{publications[0].type}</p>
-          <p className="mt-3 font-medium leading-relaxed">{publications[0].citation}</p>
-          <p className="mt-2 text-sm text-muted">{publications[0].venue}</p>
-        </Card>
-        <Link href="/publications" className="mt-8 inline-block text-sm font-medium text-accent hover:underline">
-          Toutes les publications →
-        </Link>
-      </Section>
-
-      <Section eyebrow="Expertise" title="Compétences clés">
-        <div className="flex flex-wrap gap-2">
-          {Object.values(skills)
-            .flat()
-            .slice(0, 14)
-            .map((skill) => (
-              <Badge key={skill}>{skill}</Badge>
-            ))}
-        </div>
-        <Link href="/competences" className="mt-8 inline-block text-sm font-medium text-accent hover:underline">
-          Voir toutes les compétences →
-        </Link>
-      </Section>
-
-      <Section>
-        <Card className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
-          <div>
-            <h3 className="text-xl font-semibold">Un projet d&apos;IA appliquée à concrétiser ?</h3>
-            <p className="mt-2 text-sm text-muted">
-              Discutons de votre cas d&apos;usage — maintenance prédictive, agents RAG, ou pipelines ML production-ready.
-            </p>
+      <section className="py-24 sm:py-32" id="work">
+        <Container>
+          <div className="mb-12 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+            <div><p className="eyebrow mb-4">01 / SELECTED WORK</p><h2 className="section-display">Selected <em>projects.</em></h2><p className="mt-4 max-w-xl text-muted">Des expériences concrètes, des résultats documentés et du code à explorer.</p></div>
+            <Link href="/projets" className="inline-flex items-center gap-3 text-sm font-semibold text-accent hover:underline">Tous les projets <Arrow diagonal /></Link>
           </div>
-          <Link
-            href="/contact"
-            className="gradient-btn shrink-0 rounded-full px-5 py-2.5 text-sm font-semibold"
-          >
-            Me contacter
-          </Link>
-        </Card>
-      </Section>
-    </>
+          <div className="grid gap-5 lg:grid-cols-2">
+            {feature.map((project, index) => (
+              <article key={project.name} className="project-editorial group flex flex-col overflow-hidden rounded-[1.75rem] border border-border bg-surface">
+                <div className={`relative flex min-h-48 flex-col justify-between overflow-hidden p-7 sm:min-h-56 sm:p-9 project-art project-art-${index % 4}`}>
+                  <div className="relative z-10 flex justify-between gap-3"><span className="eyebrow !text-white/75">PROJECT / {String(index + 1).padStart(2,"0")}</span><span className="text-2xl text-white/75">↗</span></div>
+                  <div className="relative z-10"><span className="block max-w-md text-2xl font-semibold tracking-tight text-white sm:text-3xl">{project.name.split(" — ")[0]}</span><span className="mt-2 block text-xs uppercase tracking-[.2em] text-white/65">{project.stack.slice(0,3).join("  /  ")}</span></div>
+                  <div className="project-orb" aria-hidden="true" />
+                </div>
+                <div className="flex flex-1 flex-col p-7 sm:p-8">
+                  <p className="line-clamp-3 text-sm leading-relaxed text-muted">{project.description}</p>
+                  <div className="mt-5 flex flex-wrap gap-2">{project.metrics.slice(0,2).map(metric => <span key={metric.label} className="rounded-lg border border-border px-3 py-2 text-xs"><strong className="text-foreground">{metric.value}</strong> <span className="text-muted">{metric.label}</span></span>)}</div>
+                  <div className="mt-auto flex flex-wrap items-center gap-5 pt-7 text-sm font-semibold"><a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">GitHub ↗</a>{project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Live demo ↗</a>}</div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-y border-border bg-surface/50 py-24 sm:py-28">
+        <Container>
+          <p className="eyebrow mb-4">02 / WHAT I DO</p>
+          <h2 className="section-display mb-12">At the intersection of <em>ideas & impact.</em></h2>
+          <div className="grid gap-px overflow-hidden rounded-3xl border border-border bg-border lg:grid-cols-3">
+            {domains.map(domain => <div key={domain.number} className="bg-background p-8 sm:p-10"><span className="eyebrow text-accent">{domain.number} / EXPERTISE</span><h3 className="mt-12 text-2xl font-semibold tracking-tight">{domain.title}</h3><p className="mt-4 min-h-24 text-sm leading-relaxed text-muted">{domain.text}</p><p className="mt-7 border-t border-border pt-5 text-xs font-medium text-accent">{domain.tags}</p></div>)}
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-24 sm:py-32">
+        <Container className="grid gap-12 lg:grid-cols-[.85fr_1.15fr]">
+          <div><p className="eyebrow mb-4">03 / EXPERIENCE</p><h2 className="section-display">From research<br />to <em>real-world.</em></h2><p className="mt-6 max-w-sm text-muted">Une expérience entre laboratoires, industrie et déploiement de produits IA.</p><Link href="/experiences" className="mt-7 inline-flex items-center gap-2 font-semibold text-accent hover:underline">Explorer mon parcours <Arrow diagonal /></Link></div>
+          <div className="divide-y divide-border border-t border-border">
+            {experiences.slice(0,4).map(exp => <div key={exp.company + exp.period} className="grid gap-3 py-7 sm:grid-cols-[1fr_auto]"><div><h3 className="text-lg font-semibold">{exp.role}</h3><p className="mt-1 text-sm text-muted">{exp.company} · {exp.location}</p></div><span className="text-xs font-medium text-accent">{exp.period}</span></div>)}
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-y border-border bg-surface/50 py-24">
+        <Container className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+          <div><p className="eyebrow mb-4">04 / RESEARCH</p><h2 className="section-display">Curiosity,<br /><em>published.</em></h2><p className="mt-5 max-w-md text-muted">La recherche n’est pas un chapitre à part : elle façonne ma manière de construire des systèmes fiables.</p><Link href="/publications" className="mt-7 inline-flex items-center gap-2 font-semibold text-accent hover:underline">Voir mes publications <Arrow diagonal /></Link></div>
+          <div className="rounded-3xl border border-border bg-background p-8 sm:p-10"><p className="eyebrow mb-6">FEATURED PUBLICATION</p><h3 className="text-xl font-semibold leading-snug">{publications[0].citation}</h3><p className="mt-5 text-sm text-muted">{publications[0].venue}</p><div className="mt-7 flex flex-wrap gap-2">{Object.values(skills).flat().slice(0,6).map(skill=><span key={skill} className="rounded-full border border-border px-3 py-1 text-xs text-muted">{skill}</span>)}</div></div>
+        </Container>
+      </section>
+
+      <section className="py-24 sm:py-32">
+        <Container><div className="relative overflow-hidden rounded-[2rem] bg-[#152c29] p-9 text-white sm:p-16"><div className="absolute -right-20 -top-28 h-96 w-96 rounded-full border-[65px] border-[#2dd4bf]/15" aria-hidden="true" /><p className="eyebrow mb-6 !text-[#9de8dc]">05 / LET'S CONNECT</p><h2 className="relative max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-6xl">Have a complex problem?<br /><em className="font-serif text-[#9de8dc]">Let's build something meaningful.</em></h2><p className="relative mt-6 max-w-xl text-white/70">Ouvert aux collaborations R&D, aux projets d’IA appliquée et aux opportunités de recherche.</p><div className="relative mt-9 flex flex-wrap gap-3"><Link href="/contact" className="inline-flex items-center gap-3 rounded-full bg-[#baf5e9] px-6 py-3 font-semibold text-[#102d29] transition hover:bg-white">Me contacter ↗</Link><a href={profile.links.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 rounded-full border border-white/30 px-6 py-3 font-semibold transition hover:bg-white/10">GitHub ↗</a></div></div></Container>
+      </section>
+    </div>
   );
 }
