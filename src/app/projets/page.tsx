@@ -48,6 +48,7 @@ export default function ProjectsPage() {
                   )}
                 </div>
 
+                {project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="mb-2 inline-flex rounded-full bg-accent px-4 py-2 text-sm font-semibold text-accent-contrast transition hover:opacity-90">Tester la démo ↗</a>}
                 <div className="mt-3 flex flex-wrap gap-2">
                   {project.stack.map((tech) => (
                     <Badge key={tech}>{tech}</Badge>
