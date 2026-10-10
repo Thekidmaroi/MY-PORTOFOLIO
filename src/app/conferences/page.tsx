@@ -1,4 +1,6 @@
-import type { Metadata } from "next";
+"use client";
+import {useLanguage} from "@/components/language-provider";
+import {EnglishPage} from "@/components/english-pages";
 import { PageHeader } from "@/components/page-header";
 import { Section } from "@/components/section";
 import { Card } from "@/components/card";
@@ -13,10 +15,11 @@ const PHOTO_FOCUS: Record<string, string> = {
   "/CONF%20TETOUAN.PNG": "50% 30%",
 };
 
-export const metadata: Metadata = { title: "Conférences" };
 
 export default function ConferencesPage() {
-  return (
+ const {language}=useLanguage();
+ if(language==="en") return <EnglishPage route="conferences" />;
+ return (
     <>
       <PageHeader
         kicker="Communications scientifiques"
