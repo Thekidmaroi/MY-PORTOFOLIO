@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "@/components/language-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { profile } from "@/lib/data";
@@ -46,9 +47,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="min-h-full flex flex-col">
-        <Navbar />
+        <LanguageProvider><Navbar />
         <main className="flex-1">{children}</main>
-        <Footer />
+        <Footer /></LanguageProvider>
       </body>
     </html>
   );
