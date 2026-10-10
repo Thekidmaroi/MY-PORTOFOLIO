@@ -48,8 +48,8 @@ export function Footer() {
         </div>
 
         {groups.map((group) => (
-          <div key={language==="fr"?group.title:labels[group.title]||group.title}>
-            <p className="mono-label mb-4 text-xs font-medium text-muted">{group.title}</p>
+          <div key={group.title}>
+            <p className="mono-label mb-4 text-xs font-medium text-muted">{language==="fr"?group.title:labels[group.title]||group.title}</p>
             <ul className="space-y-2.5 text-sm">
               {group.links.map((link) => (
                 <li key={link.href}>
