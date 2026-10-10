@@ -98,7 +98,7 @@ export default function Home() {
                   <Badge key={tech}>{tech}</Badge>
                 ))}
               </div>
-              <div className="mt-auto pt-6"><a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="inline-flex rounded-full border border-accent/40 px-4 py-2 text-sm font-semibold text-accent transition hover:bg-accent/10">Explorer le projet ↗</a></div>
+              <div className="mt-auto flex flex-wrap gap-2 pt-6"><a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="inline-flex rounded-full border border-accent/40 px-4 py-2 text-sm font-semibold text-accent transition hover:bg-accent/10">Code GitHub ↗</a>{project.demoUrl && <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="gradient-btn inline-flex rounded-full px-4 py-2 text-sm font-semibold">Voir la démo ↗</a>}</div>
             </Card>
           ))}
         </div>
