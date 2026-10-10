@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
+"use client";
+import {useLanguage} from "@/components/language-provider";
+import {EnglishPage} from "@/components/english-pages";
 import Link from "next/link";
 import { Container } from "@/components/container";
 import { projects } from "@/lib/data";
-export const metadata: Metadata = { title: "Projets — IA, NLP et recherche" };
 export default function ProjectsPage() {
  return <main className="editorial">
   <section className="border-b border-border py-20 sm:py-28"><Container><p className="eyebrow mb-6">PORTFOLIO / PROJECT ARCHIVE</p><h1 className="display-title max-w-4xl">Proof of <em>work.</em></h1><p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted">Des projets d'intelligence artificielle documentés : méthodes, résultats, limites, code source et démonstrations quand elles existent.</p><p className="mt-7 text-xs font-semibold uppercase tracking-widest text-accent">{projects.length} PROJETS · NLP / ML / RESEARCH / DEPLOYMENT</p></Container></section>
