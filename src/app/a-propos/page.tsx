@@ -1,143 +1,24 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PageHeader } from "@/components/page-header";
-import { Section } from "@/components/section";
-import { Card } from "@/components/card";
+import { Container } from "@/components/container";
 import { MediaSlot } from "@/components/media-slot";
-import { DimensionCard } from "@/components/dimension-card";
-import { IconTile, type IconName } from "@/components/icon-tile";
-import { profile, pillars } from "@/lib/data";
-import type { Tone } from "@/components/badge";
-
-export const metadata: Metadata = { title: "À propos" };
-
+import { profile, experiences, education, publications, involvements } from "@/lib/data";
+export const metadata: Metadata = { title: "À propos — Marwane Houngnon" };
+const focus = [
+  { id:"01",title:"L'IA, au-delà du modèle",body:"Concevoir une solution, c'est aussi comprendre le problème, préparer les données, évaluer les limites et rendre le système utilisable." },
+  { id:"02",title:"La recherche comme méthode",body:"Modélisation stochastique, optimisation markovienne, systèmes hybrides : je m'appuie sur la rigueur scientifique pour guider l'expérimentation." },
+  { id:"03",title:"Le partage comme engagement",body:"Co-fondateur de Benin AI Community, je contribue à créer des passerelles entre apprentissage, projets et opportunités pour les talents africains." }
+];
 export default function AboutPage() {
-  return (
-    <>
-      <PageHeader
-        kicker="À propos"
-        title="Qui je suis"
-        description="Ingénieur R&D en IA, à la croisée de la recherche appliquée et de l'ingénierie de production."
-      />
-
-      <Section>
-        <div className="grid gap-10 lg:grid-cols-[380px_1fr] lg:items-start">
-          <div className="space-y-6">
-            <MediaSlot
-              src={profile.photo}
-              alt={`Photo de ${profile.name}`}
-              variant="cover"
-              className="aspect-[4/5] w-full"
-              objectPosition="50% 15%"
-            />
-
-            <Card>
-              <p className="mono-label text-xs text-accent">Informations</p>
-              <dl className="mt-4 space-y-3 text-sm">
-                <div>
-                  <dt className="text-muted">Localisation</dt>
-                  <dd className="mt-0.5 font-medium">{profile.location}</dd>
-                </div>
-                <div>
-                  <dt className="text-muted">Disponibilité</dt>
-                  <dd className="mt-0.5 font-medium">{profile.availability}</dd>
-                </div>
-                <div>
-                  <dt className="text-muted">Langues</dt>
-                  <dd className="mt-0.5 font-medium">
-                    {profile.languages.map((l) => `${l.name} (${l.level})`).join(" · ")}
-                  </dd>
-                </div>
-              </dl>
-            </Card>
-          </div>
-          <div>
-            <p className="mono-label text-xs font-medium text-accent">Biographie</p>
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">{profile.name}</h2>
-
-            <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-muted">
-              <p>
-                Ingénieur en <strong className="font-semibold text-foreground">Intelligence Artificielle &amp; Big Data</strong>, je
-                suis <strong className="font-semibold text-foreground">AI Research Engineer</strong> spécialisé en{" "}
-                <strong className="font-semibold text-foreground">modélisation stochastique et optimisation markovienne</strong>, à la
-                croisée de la recherche appliquée et de l&apos;ingénierie de production. Auteur publié (Springer Nature, indexé Web
-                of Science), mes travaux portent sur les smart grids, les smart cities et la modélisation des systèmes
-                énergétiques — retrouvables dans mes{" "}
-                <Link href="/publications" className="font-semibold text-accent hover:underline">
-                  publications
-                </Link>
-                .
-              </p>
-
-              <p>
-                Mon travail se situe à l&apos;intersection de la modélisation probabiliste (chaînes de Markov, filtrage) et de
-                l&apos;apprentissage profond, appliquée à des problèmes concrets : anomalies sur données de capteurs, prédiction de
-                durée de vie résiduelle, ou agents conversationnels fiables sur des données sensibles.
-              </p>
-
-              <p>
-                Fort d&apos;une expérience à la fois en laboratoire de recherche et en déploiement industriel, je développe des{" "}
-                <strong className="font-semibold text-foreground">pipelines d&apos;IA de bout en bout</strong> — de la formulation
-                théorique et l&apos;optimisation bayésienne jusqu&apos;à l&apos;implémentation en production via des LLMs, avec
-                Docker, CI/CD et monitoring.
-              </p>
-
-              <p>
-                Depuis janvier 2025, j&apos;ai co-fondé{" "}
-                <Link href="/associations-et-startups" className="font-semibold text-accent hover:underline">
-                  Benin AI Community (BAIC)
-                </Link>
-                , une communauté dédiée à former, fédérer et connecter les talents en intelligence artificielle du Bénin, au
-                service d&apos;un écosystème IA durable en Afrique de l&apos;Ouest.
-              </p>
-
-              <p className="italic">
-                Je m&apos;intéresse particulièrement au développement de systèmes d&apos;IA hybrides pour les infrastructures
-                énergétiques et urbaines, dans une perspective de recherche académique approfondie et de collaboration
-                internationale.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="mt-12 grid gap-4 sm:grid-cols-3">
-          {pillars.map((pillar) => (
-            <DimensionCard key={pillar.title} {...pillar} />
-          ))}
-        </div>
-      </Section>
-
-      <Section eyebrow="Approche" title="Comment je travaille">
-        <div className="grid gap-6 sm:grid-cols-3">
-          {(
-            [
-              {
-                title: "Données d'abord",
-                text: "Chaque modèle démarre par une compréhension fine du signal — capteurs, séries temporelles, corpus texte — avant tout choix d'architecture.",
-                tone: "cyan",
-                icon: "data",
-              },
-              {
-                title: "Rigueur scientifique",
-                text: "Hypothèses testées, métriques rapportées honnêtement (recall, RMSE, biais), résultats reproductibles et publiables.",
-                tone: "purple",
-                icon: "rigor",
-              },
-              {
-                title: "Prêt pour la production",
-                text: "Pipelines conteneurisés, testés, monitorés — pas de notebook isolé. CI/CD, garde-fous, observabilité dès la conception.",
-                tone: "green",
-                icon: "production",
-              },
-            ] satisfies { title: string; text: string; tone: Exclude<Tone, "neutral">; icon: IconName }[]
-          ).map((item) => (
-            <Card key={item.title}>
-              <IconTile tone={item.tone} icon={item.icon} />
-              <h3 className="mt-4 font-semibold">{item.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{item.text}</p>
-            </Card>
-          ))}
-        </div>
-      </Section>
-    </>
-  );
+return <main className="editorial">
+ <section className="border-b border-border"><Container className="grid items-center gap-8 py-12 lg:grid-cols-[.9fr_1.1fr] lg:py-16">
+  <div className="relative max-w-[390px]"><div className="absolute -inset-5 rounded-full bg-accent/10 blur-3xl" aria-hidden="true"/><MediaSlot src={profile.photo} alt={`Portrait de ${profile.name}`} variant="cover" className="relative aspect-[4/4] w-full rounded-3xl" objectPosition="50% 15%"/><div className="absolute bottom-4 left-4 rounded-full border border-white/20 bg-black/70 px-4 py-2 text-xs font-semibold text-white backdrop-blur">CASABLANCA · BÉNIN ↔ MAROC</div></div>
+  <div><p className="eyebrow mb-4">THE PERSON BEHIND THE WORK</p><h1 className="section-display">Ingénieur de formation.<br/><em>Chercheur par curiosité.</em></h1><p className="mt-5 text-lg leading-relaxed text-muted">Je suis <strong className="text-foreground">{profile.name}</strong>. Mon parcours relie les mathématiques appliquées, la data science, la recherche en intelligence artificielle et le développement de solutions pour l'industrie.</p><p className="mt-4 leading-relaxed text-muted">Je travaille à l'intersection des modèles probabilistes, du machine learning et du NLP. Mon objectif : transformer des questions complexes en systèmes mesurables, documentés et réellement exploitables.</p><div className="mt-6 flex flex-wrap gap-3"><Link href="/contact" className="editorial-button">Échanger avec moi ↗</Link><Link href="/publications" className="editorial-button-secondary">Mes recherches →</Link></div></div>
+ </Container></section>
+ <section className="py-14 sm:py-20"><Container><div className="grid gap-8 lg:grid-cols-[.7fr_1.3fr]"><div><p className="eyebrow mb-4">01 / MON PARCOURS</p><h2 className="section-display">From data<br/>to <em>discovery.</em></h2></div><div className="space-y-4 text-[15px] leading-relaxed text-muted"><p>Mon socle est celui des <strong className="text-foreground">mathématiques appliquées et de la statistique</strong>, étudiées à l'ENEAM au Bénin. Je l'ai prolongé par un master en <strong className="text-foreground">Data Science & Intelligence Artificielle</strong> à SUP'RH, à Casablanca.</p><p>Sur le terrain, j'ai travaillé sur la prévision financière chez <strong className="text-foreground">Atlantic Smart Technology</strong>, sur l'automatisation et les outils IA chez <strong className="text-foreground">Namaryk Concept</strong>, sur des systèmes d'orientation chez <strong className="text-foreground">Web4Jobs</strong> et sur des pipelines de modèles de langage chez <strong className="text-foreground">Lydec</strong>. Ces expériences m'ont appris à penser autant à l'usage qu'à l'algorithme.</p><p>En parallèle, mes travaux au <strong className="text-foreground">CERMACH</strong> portent sur les systèmes énergétiques, les smart grids et les architectures hybrides probabilistes-neuronales. Deux chapitres coécrits sont publiés chez Springer Nature, tandis qu'un article de revue est indiqué comme accepté dans mon dossier.</p><p>Je développe aussi des projets open source en <strong className="text-foreground">NLP pour les langues africaines</strong>, notamment en fon et en swahili. Cette dimension est essentielle pour moi : l'innovation doit aussi tenir compte des langues et des réalités de nos territoires.</p></div></div></Container></section>
+ <section className="border-y border-border bg-surface/50 py-14 sm:py-20"><Container><p className="eyebrow mb-4">02 / MA FAÇON DE TRAVAILLER</p><h2 className="section-display mb-8">Think. Build. <em>Share.</em></h2><div className="grid gap-4 md:grid-cols-3">{focus.map(item=><div key={item.id} className="rounded-3xl border border-border bg-background p-7"><span className="eyebrow">{item.id} / APPROCHE</span><h3 className="mt-7 text-xl font-semibold">{item.title}</h3><p className="mt-3 text-sm leading-relaxed text-muted">{item.body}</p></div>)}</div></Container></section>
+ <section className="py-14 sm:py-20"><Container className="grid gap-10 lg:grid-cols-2"><div><p className="eyebrow mb-4">03 / FORMATION</p><h2 className="mb-6 text-3xl font-semibold tracking-tight">Le socle académique</h2><div className="divide-y divide-border border-t border-border">{education.slice(0,2).map(item=><div key={item.degree} className="py-5"><p className="text-xs font-semibold text-accent">{item.period}</p><h3 className="mt-2 font-semibold">{item.degree}</h3><p className="mt-1 text-sm text-muted">{item.school}</p></div>)}</div></div><div><p className="eyebrow mb-4">04 / EXPÉRIENCES</p><h2 className="mb-6 text-3xl font-semibold tracking-tight">Du laboratoire au terrain</h2><div className="divide-y divide-border border-t border-border">{experiences.slice(0,4).map(item=><div key={item.company+item.period} className="flex justify-between gap-4 py-5"><div><h3 className="font-semibold">{item.role}</h3><p className="mt-1 text-sm text-muted">{item.company}</p></div><p className="max-w-32 text-right text-xs text-accent">{item.period}</p></div>)}</div><Link href="/experiences" className="mt-5 inline-block font-semibold text-accent hover:underline">Tout mon parcours ↗</Link></div></Container></section>
+ <section className="border-y border-border bg-surface/50 py-14"><Container className="grid gap-7 lg:grid-cols-[1fr_1fr] lg:items-center"><div><p className="eyebrow mb-3">05 / SCIENCE & COMMUNAUTÉ</p><h2 className="section-display">Research meets <em>community.</em></h2></div><div><p className="leading-relaxed text-muted">Entre publications, conférences et engagement associatif, je défends une IA rigoureuse, accessible et ancrée dans les besoins locaux. Je contribue notamment à <strong className="text-foreground">{involvements[0].organization}</strong> en tant que {involvements[0].role.toLowerCase()}.</p><div className="mt-5 flex flex-wrap gap-5 text-sm font-semibold"><Link href="/publications" className="text-accent hover:underline">Publications ↗</Link><Link href="/associations-et-startups" className="text-accent hover:underline">Engagements ↗</Link></div></div></Container></section>
+ <section className="py-14"><Container><div className="flex flex-col justify-between gap-5 rounded-3xl bg-[#152c29] p-8 text-white sm:flex-row sm:items-center sm:p-10"><div><p className="eyebrow mb-3 !text-[#9de8dc]">LET'S CONNECT</p><h2 className="text-2xl font-semibold sm:text-3xl">Une idée, une recherche, une collaboration ?</h2></div><Link href="/contact" className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#baf5e9] px-6 py-3 font-semibold text-[#102d29]">Discutons ↗</Link></div></Container></section>
+</main>;
 }
