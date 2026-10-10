@@ -1,4 +1,6 @@
-import type { Metadata } from "next";
+"use client";
+import {useLanguage} from "@/components/language-provider";
+import {EnglishPage} from "@/components/english-pages";
 import { PageHeader } from "@/components/page-header";
 import { Section } from "@/components/section";
 import { Card } from "@/components/card";
@@ -6,7 +8,6 @@ import { Badge } from "@/components/badge";
 import { MediaSlot } from "@/components/media-slot";
 import { involvements } from "@/lib/data";
 
-export const metadata: Metadata = { title: "Associations & Startups" };
 
 // Certaines photos (captures d'écran de posts Instagram) ont le sujet cadré
 // plus haut que le centre de l'image — sans ce recadrage, le crop par défaut
@@ -18,7 +19,9 @@ const PHOTO_FOCUS: Record<string, string> = {
 };
 
 export default function InvolvementsPage() {
-  return (
+ const {language}=useLanguage();
+ if(language==="en") return <EnglishPage route="associations-et-startups" />;
+ return (
     <>
       <PageHeader
         kicker="Engagement"

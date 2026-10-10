@@ -1,14 +1,17 @@
-import type { Metadata } from "next";
+"use client";
+import {useLanguage} from "@/components/language-provider";
+import {EnglishPage} from "@/components/english-pages";
 import { PageHeader } from "@/components/page-header";
 import { Section } from "@/components/section";
 import { Card } from "@/components/card";
 import { SkillChip } from "@/components/skill-chip";
 import { skills } from "@/lib/data";
 
-export const metadata: Metadata = { title: "Compétences" };
 
 export default function SkillsPage() {
-  return (
+ const {language}=useLanguage();
+ if(language==="en") return <EnglishPage route="competences" />;
+ return (
     <>
       <PageHeader
         kicker="Expertise technique"

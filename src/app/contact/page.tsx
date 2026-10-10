@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
+"use client";
+import {useLanguage} from "@/components/language-provider";
+import {EnglishPage} from "@/components/english-pages";
 import Script from "next/script";
 import { PageHeader } from "@/components/page-header";
 import { Section } from "@/components/section";
 import { Card } from "@/components/card";
 import { profile } from "@/lib/data";
 
-export const metadata: Metadata = { title: "Contact" };
 
 const channels = [
   {
@@ -26,7 +27,9 @@ const channels = [
 ];
 
 export default function ContactPage() {
-  return (
+ const {language}=useLanguage();
+ if(language==="en") return <EnglishPage route="contact" />;
+ return (
     <>
       <PageHeader
         kicker="Travaillons ensemble"
